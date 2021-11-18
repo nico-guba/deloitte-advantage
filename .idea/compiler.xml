@@ -7,14 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="deloitte-advantage" />
+        <module name="advantage" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="advantage" target="11" />
       <module name="deloitte-advantage" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="advantage" options="-parameters" />
       <module name="deloitte-advantage" options="-parameters" />
     </option>
   </component>
