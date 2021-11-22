@@ -16,7 +16,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="advantage" target="1.5" />
+      <module name="advantage" target="11" />
       <module name="application" target="11" />
       <module name="deloitte-advantage" target="11" />
       <module name="domain" target="11" />
