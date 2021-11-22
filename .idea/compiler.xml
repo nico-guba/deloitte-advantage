@@ -6,13 +6,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="presentation" />
+        <module name="application" />
+        <module name="test-support" />
+        <module name="infrastructure" />
+        <module name="domain" />
         <module name="deloitte-advantage" />
-        <module name="advantage" />
+        <module name="test-support-lambda" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="advantage" target="11" />
+      <module name="advantage" target="1.5" />
+      <module name="application" target="11" />
       <module name="deloitte-advantage" target="11" />
+      <module name="domain" target="11" />
+      <module name="infrastructure" target="11" />
+      <module name="presentation" target="11" />
+      <module name="test-support" target="11" />
+      <module name="test-support-lambda" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
