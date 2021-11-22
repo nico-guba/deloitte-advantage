@@ -7,14 +7,10 @@
 - Infrastructure
 - Application
 - Presentation
-- Spring-Boot-Jar
-  Responsible for the running and building configuration of the Java artifact to run within a Java Environment. 
-- Spring-Boot-Native
-  Responsible for the running and building configuration of the GraalVM native-image artifact using Spring-Native. 
 - Test-Support
-  Responsible for containing any technology agnostic testing dependencies and custom testing utilities that dont rely on any spring related dependencies.
-- Test-Support-Spring
-  Responsible for containing testing depedencies that help with any spring/integration testing.
+  Responsible for containing any technology-agnostic testing dependencies and custom testing utilities that don't rely on any spring related dependencies.
+- Test-Support-lambda
+  Responsible for containing testing dependencies that help with any lambda/integration testing.
 
 ## Tech
 - [Spring-Boot] - Web Framework
