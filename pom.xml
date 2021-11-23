@@ -19,8 +19,9 @@
     <packaging>pom</packaging>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
         <amazon.awssdk.version>2.17.86</amazon.awssdk.version>
         <maven.surefire.version>2.22.0</maven.surefire.version>
         <junit5.version>5.8.1</junit5.version>
