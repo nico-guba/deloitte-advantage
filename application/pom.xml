@@ -23,6 +23,10 @@
         </dependency>
         <dependency>
             <groupId>uk.co.deloitte.advantage</groupId>
+            <artifactId>domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>uk.co.deloitte.advantage</groupId>
             <artifactId>test-support-lambda</artifactId>
             <scope>test</scope>
         </dependency>
