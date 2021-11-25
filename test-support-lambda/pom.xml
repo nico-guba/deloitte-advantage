@@ -14,12 +14,22 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <json.assert.version>1.5.0</json.assert.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>uk.co.deloitte.advantage</groupId>
             <artifactId>test-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-lambda-java-tests</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.skyscreamer</groupId>
+            <artifactId>jsonassert</artifactId>
+            <version>${json.assert.version}</version>
         </dependency>
     </dependencies>
 
