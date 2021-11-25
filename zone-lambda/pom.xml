@@ -95,7 +95,7 @@
                     <serverId>aws</serverId>
                     <!-- The default region provider chain is used if the region is omitted -->
                     <region>eu-west-2</region>
-                    <artifact>${project.build.directory}/zone-lambda-${project.version}.jar</artifact>
+                    <artifact>${project.build.directory}/${project.artifactId}-${project.version}.jar</artifact>
                     <functionName>zone-find</functionName>
                     <!-- optional functionAlias, if included an alias for the new lambda version is created -->
                     <!-- functionAlias>${project.version}-${maven.build.timestamp}</functionAlias -->
