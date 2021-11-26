@@ -1,5 +1,6 @@
 package uk.co.deloitte.advantage.zone.presentation.converters;
 
+import ma.glasnost.orika.MapperFactory;
 import ma.glasnost.orika.converter.ConverterFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 import uk.co.deloitte.advantage.zone.presentation.resources.FacilityResource;
@@ -7,11 +8,15 @@ import uk.co.deloitte.advantage.zone.presentation.resources.ZoneResource;
 import uk.co.deloitte.domain.Facility;
 import uk.co.deloitte.domain.Zone;
 
+/**
+ * Currently using the <b>orika library</b> for converting domain objects to presentation objects.
+ * Not sure if this is going to stay, need to figure out if this is ok or find a better one.
+ */
 public final class ConverterRegistry {
 
-    private final DefaultMapperFactory mapperFactory;
+    private final MapperFactory mapperFactory;
 
-    private ConverterRegistry(DefaultMapperFactory mapperFactory) {
+    private ConverterRegistry(MapperFactory mapperFactory) {
         this.mapperFactory = mapperFactory;
     }
 
@@ -21,7 +26,8 @@ public final class ConverterRegistry {
 
     private ConverterRegistry initialize() {
         ConverterFactory converterFactory = mapperFactory.getConverterFactory();
-        converterFactory.registerConverter(ZoneConverter.create());
+        converterFactory.registerConverter(ZoneConverter.create(this));
+        converterFactory.registerConverter(FacilityConverter.create());
         return this;
     }
 

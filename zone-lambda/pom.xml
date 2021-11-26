@@ -49,23 +49,6 @@
                     <minimizeJar>true</minimizeJar>
                     <filters>
                         <filter>
-                            <artifact>*:*</artifact>
-                            <excludes>
-                                <exclude>META-INF/DEPENDENCIES</exclude>
-                                <exclude>META-INF/LICENSE</exclude>
-                                <exclude>META-INF/NOTICE</exclude>
-                                <exclude>META-INF/MANIFEST.MF</exclude>
-                            </excludes>
-                        </filter>
-
-                        <filter>
-                            <artifact>org.apache.logging.log4j:*</artifact>
-                            <excludes>
-                                <exclude>META-INF/org/apache/logging/log4j/core/config/plugins/Log4j2Plugins.dat</exclude>
-                            </excludes>
-                        </filter>
-
-                        <filter>
                             <artifact>com.amazonaws:*</artifact>
                             <excludes>
                                 <exclude>META-INF/*.MF</exclude>
@@ -75,14 +58,6 @@
                             <artifact>joda-time:*</artifact>
                             <excludes>
                                 <exclude>META-INF/*.MF</exclude>
-                            </excludes>
-                        </filter>
-                        <filter>
-                            <artifact>org.codehaus.janino:*</artifact>
-                            <excludes>
-                                <exclude>META-INF/*.SF</exclude>
-                                <exclude>META-INF/*.DSA</exclude>
-                                <exclude>META-INF/*.RSA</exclude>
                             </excludes>
                         </filter>
                     </filters>

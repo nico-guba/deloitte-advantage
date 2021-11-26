@@ -16,12 +16,12 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 class ZoneConverterTest {
 
-    private final ZoneConverter actual = ZoneConverter.create();
+    private final ZoneConverter actual = ZoneConverter.create(ConverterRegistry.create());
 
     @Test
-    @DisplayName("Convert Zone Domain Object to ZoneResource.")
-    void convertSuccessfullyTest() {
-        ZoneResource actual = convert(DomainTestFactory.createBlankTennisZone());
+    @DisplayName("Convert an empty Zone Domain Object to ZoneResource.")
+    void convertZoneTest() {
+        ZoneResource actual = convert(DomainTestFactory.createTennisZoneWithFacility());
         assertEquals(PresentationTestFactory.createTennisZoneResource(), actual);
     }
 
