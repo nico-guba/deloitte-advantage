@@ -28,6 +28,10 @@
             <artifactId>aws-lambda-java-core</artifactId>
         </dependency>
         <dependency>
+            <groupId>ma.glasnost.orika</groupId>
+            <artifactId>orika-core</artifactId>
+        </dependency>
+       <dependency>
             <groupId>uk.co.deloitte.advantage</groupId>
             <artifactId>domain</artifactId>
             <version>${project.parent.version}</version>
@@ -42,6 +46,7 @@
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.4</version>
                 <configuration>
+                    <minimizeJar>true</minimizeJar>
                     <filters>
                         <filter>
                             <artifact>com.amazonaws:*</artifact>

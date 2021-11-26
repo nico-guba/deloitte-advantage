@@ -2,10 +2,7 @@ package uk.co.deloitte.domain;
 
 import uk.co.deloitte.domain.ddd.Aggregate;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.StringJoiner;
+import java.util.*;
 
 /**
  * A {@link Zone} is a location for a given sport/activity. Within a {@link Zone} multiple {@link Facility}s can be present
@@ -66,6 +63,10 @@ public final class Zone implements Aggregate<ZoneId> {
 
     public int totalFacilities() {
         return facilities.size();
+    }
+
+    public Map<FacilityId, Facility> getFacilities() {
+        return Collections.unmodifiableMap(facilities);
     }
 
     @Override

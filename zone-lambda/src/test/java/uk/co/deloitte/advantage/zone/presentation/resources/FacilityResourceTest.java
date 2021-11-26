@@ -9,38 +9,35 @@ import org.skyscreamer.jsonassert.JSONCompareMode;
 import uk.co.deloitte.advantage.zone.presentation.PresentationTestFactory;
 import uk.co.deloitte.test.support.EqualityVerifier;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-class ZoneResourceTest implements EqualityVerifier<ZoneResource> {
-
-    public static final String ZONE_AS_JSON = "{\"id\":\"359dfe3f-aaad-461c-87a7-08d9368584f1\",\"facilities\":[{\"id\":\"a3b6fbea-8fc6-4233-94a7-dd60e175c02c\"}]}";
+class FacilityResourceTest implements EqualityVerifier<FacilityResource> {
 
     private final ObjectMapper mapper = new ObjectMapper();
 
-    private final ZoneResource actual = PresentationTestFactory.createTennisZoneResource();
+    private final FacilityResource actual = PresentationTestFactory.createA1TennisFacilityResource();
+
+    private static final String FACILITY_AS_JSON = "{\"id\":\"a3b6fbea-8fc6-4233-94a7-dd60e175c02c\"}";
 
     @Test
     void toJsonTest() throws JsonProcessingException, JSONException {
-        JSONAssert.assertEquals(ZONE_AS_JSON,
+        JSONAssert.assertEquals(FACILITY_AS_JSON,
                 mapper.writeValueAsString(actual), JSONCompareMode.STRICT);
     }
 
     @Test
     void fromJsonTest() throws JsonProcessingException {
-        ZoneResource actual = mapper.readValue(ZONE_AS_JSON, ZoneResource.class);
-        assertEquals(PresentationTestFactory.createTennisZoneResource(), actual);
+        FacilityResource actual = mapper.readValue(FACILITY_AS_JSON, FacilityResource.class);
+        assertEquals(PresentationTestFactory.createA1TennisFacilityResource(), actual);
     }
 
     @Test
     void toStringTest() {
-        assertEquals("ZoneResource[id=359dfe3f-aaad-461c-87a7-08d9368584f1, " +
-                        "facilities=[FacilityResource[id=a3b6fbea-8fc6-4233-94a7-dd60e175c02c]]]",
-                actual.toString());
+        assertEquals("FacilityResource[id=a3b6fbea-8fc6-4233-94a7-dd60e175c02c]", actual.toString());
     }
 
-
     @Override
-    public Class<? extends ZoneResource> typeClass() {
+    public Class<? extends FacilityResource> typeClass() {
         return actual.getClass();
     }
 }

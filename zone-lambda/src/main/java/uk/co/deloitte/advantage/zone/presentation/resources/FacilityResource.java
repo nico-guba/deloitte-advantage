@@ -4,49 +4,40 @@ import com.amazonaws.lambda.thirdparty.com.fasterxml.jackson.databind.annotation
 import com.amazonaws.lambda.thirdparty.com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
 import java.util.Objects;
-import java.util.Set;
 import java.util.StringJoiner;
 import java.util.UUID;
 
-@JsonDeserialize(builder = ZoneResource.Builder.class)
-public final class ZoneResource {
+@JsonDeserialize(builder = FacilityResource.Builder.class)
+public final class FacilityResource {
 
     private final UUID id;
 
-    private final Set<FacilityResource> facilities;
-
-    public ZoneResource(UUID id, Set<FacilityResource> facilities) {
+    public FacilityResource(UUID id) {
         this.id = id;
-        this.facilities = facilities;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ZoneResource that = (ZoneResource) o;
-        return Objects.equals(id, that.id) && Objects.equals(facilities, that.facilities);
+        FacilityResource that = (FacilityResource) o;
+        return Objects.equals(id, that.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, facilities);
+        return Objects.hash(id);
     }
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", String.format("%s[", ZoneResource.class.getSimpleName()), "]")
+        return new StringJoiner(", ", String.format("%s[", FacilityResource.class.getSimpleName()), "]")
                 .add(String.format("id=%s", id))
-                .add(String.format("facilities=%s", facilities))
                 .toString();
     }
 
     public UUID getId() {
         return id;
-    }
-
-    public Set<FacilityResource> getFacilities() {
-        return facilities;
     }
 
     public static Builder builder() {
@@ -56,20 +47,14 @@ public final class ZoneResource {
     @JsonPOJOBuilder
     public static class Builder {
         private UUID id;
-        private Set<FacilityResource> facilities;
 
         public Builder withId(UUID id) {
             this.id = id;
             return this;
         }
 
-        public Builder withFacilities(Set<FacilityResource> facilities) {
-            this.facilities = facilities;
-            return this;
-        }
-
-        public ZoneResource build() {
-            return new ZoneResource(id, facilities);
+        public FacilityResource build() {
+            return new FacilityResource(id);
         }
     }
 }
