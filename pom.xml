@@ -9,28 +9,28 @@
         <module>zone-lambda</module>
         <module>test-support</module>
         <module>test-support-lambda</module>
+        <module>presentation</module>
     </modules>
 
     <groupId>uk.co.deloitte.advantage</groupId>
     <artifactId>parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>deloitte-advantage</name>
-    <description>deloitte-advantage</description>
+    <name>Deloitte Advantage</name>
+    <description>Deloitte Advantage</description>
     <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>11</java.version>
-        <amazon.awssdk.version>2.17.86</amazon.awssdk.version>
-        <maven.surefire.version>2.22.0</maven.surefire.version>
         <junit5.version>5.8.1</junit5.version>
         <equals.verifier.version>3.7.2</equals.verifier.version>
+        <aws.java.sdk.version>2.17.86</aws.java.sdk.version>
+        <aws-java-sdk-bom.version>1.12.115</aws-java-sdk-bom.version>
+        <aws-lambda-java-serialization.version>1.0.0</aws-lambda-java-serialization.version>
+        <aws-lambda-java-tests.version>1.1.0</aws-lambda-java-tests.version>
         <aws-lambda-java-core.version>1.2.1</aws-lambda-java-core.version>
-        <aws-lambda-java-log4j2.version>1.2.0</aws-lambda-java-log4j2.version>
         <aws-lambda-java-events.version>3.10.0</aws-lambda-java-events.version>
-        <aws.lambda.java.tests.version>1.1.0</aws.lambda.java.tests.version>
-        <aws.lambda.java.serialization.version>1.0.0</aws.lambda.java.serialization.version>
     </properties>
 
     <dependencyManagement>
@@ -38,15 +38,23 @@
             <dependency>
                 <groupId>software.amazon.awssdk</groupId>
                 <artifactId>bom</artifactId>
-                <version>${amazon.awssdk.version}</version>
+                <version>${aws.java.sdk.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk-bom</artifactId>
+                <version>${aws-java-sdk-bom.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
 
+
             <!-- Multi-project modules -->
             <dependency>
                 <groupId>uk.co.deloitte.advantage</groupId>
-                <artifactId>presentation</artifactId>
+                <artifactId>presentation-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -74,8 +82,16 @@
                 <artifactId>test-support-lambda</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
-            <!-- Main Application Dependencies -->
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-lambda-java-serialization</artifactId>
+                <version>${aws-lambda-java-serialization.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-lambda-java-tests</artifactId>
+                <version>${aws-lambda-java-tests.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.amazonaws</groupId>
                 <artifactId>aws-lambda-java-core</artifactId>
@@ -83,23 +99,8 @@
             </dependency>
             <dependency>
                 <groupId>com.amazonaws</groupId>
-                <artifactId>aws-lambda-java-log4j2</artifactId>
-                <version>${aws-lambda-java-log4j2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.amazonaws</groupId>
                 <artifactId>aws-lambda-java-events</artifactId>
                 <version>${aws-lambda-java-events.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.amazonaws</groupId>
-                <artifactId>aws-lambda-java-tests</artifactId>
-                <version>${aws.lambda.java.tests.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.amazonaws</groupId>
-                <artifactId>aws-lambda-java-serialization</artifactId>
-                <version>${aws.lambda.java.serialization.version}</version>
             </dependency>
 
             <!-- Testing Application Dependencies -->
@@ -117,21 +118,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${maven.surefire.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>${maven.surefire.version}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
 </project>

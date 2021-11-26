@@ -3,43 +3,48 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>parent</artifactId>
+        <artifactId>presentation</artifactId>
         <groupId>uk.co.deloitte.advantage</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>zone-lambda</artifactId>
+    <name>Example REST Gateway where single lambda handles multiple HTTP verbs</name>
+    <artifactId>rest-gateway</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>uk.co.deloitte.advantage</groupId>
-            <artifactId>application</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>uk.co.deloitte.advantage</groupId>
-            <artifactId>test-support-lambda</artifactId>
-            <scope>test</scope>
+            <artifactId>presentation-common</artifactId>
         </dependency>
         <dependency>
             <groupId>com.amazonaws</groupId>
-            <artifactId>aws-lambda-java-serialization</artifactId>
+            <artifactId>aws-lambda-java-core</artifactId>
         </dependency>
-
-       <dependency>
-            <groupId>uk.co.deloitte.advantage</groupId>
-            <artifactId>domain</artifactId>
-            <version>${project.parent.version}</version>
-            <type>test-jar</type>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-lambda-java-tests</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -88,7 +93,7 @@
                     <!-- The default region provider chain is used if the region is omitted -->
                     <region>eu-west-2</region>
                     <artifact>${project.build.directory}/${project.artifactId}-${project.version}.jar</artifact>
-                    <functionName>zone-find</functionName>
+                    <functionName>example-rest-gateway</functionName>
                     <!-- optional functionAlias, if included an alias for the new lambda version is created -->
                     <!-- functionAlias>${project.version}-${maven.build.timestamp}</functionAlias -->
                     <!-- optional proxy config -->
@@ -96,5 +101,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
