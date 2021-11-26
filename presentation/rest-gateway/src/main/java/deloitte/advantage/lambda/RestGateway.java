@@ -1,6 +1,5 @@
 package deloitte.advantage.lambda;
 
-import com.amazonaws.lambda.thirdparty.com.fasterxml.jackson.core.JsonProcessingException;
 import com.amazonaws.lambda.thirdparty.com.fasterxml.jackson.databind.ObjectMapper;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
@@ -12,16 +11,13 @@ import java.util.Map;
 public class RestGateway implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
     private OtherService service = new OtherService();
-
-    private final ObjectMapper mapper = new ObjectMapper();
-    private RequestFactory factory = new RequestFactory(mapper);
-    private ResponseFactory responseFactory = new ResponseFactory(mapper);
+    private EventFactory factory = new EventFactory(new ObjectMapper());
 
     @Override
     public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent input, Context context) {
         try {
             context.getLogger().log(input.getBody());
-            Map<String, Object> body = factory.readBody(input.getBody());
+            Map<String, Object> body = factory.readBody(input);
             switch (input.getHttpMethod()) {
                 case "POST":
                     service.onPost(Integer.valueOf((Integer) body.get("id")));
@@ -29,11 +25,9 @@ public class RestGateway implements RequestHandler<APIGatewayProxyRequestEvent, 
                 default:
                     throw new IllegalStateException("Unexpected value: " + input.getHttpMethod());
             }
-            return responseFactory.makeSuccessResponse(body);
+            return factory.makeSuccessResponse(body);
         } catch (Exception e) {
-            return responseFactory.makeErrorResponse(e);
+            return factory.makeErrorResponse(e);
         }
     }
-
-
 }

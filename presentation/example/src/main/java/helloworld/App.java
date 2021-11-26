@@ -5,8 +5,7 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
-import deloitte.advantage.lambda.RequestFactory;
-import deloitte.advantage.lambda.ResponseFactory;
+import deloitte.advantage.lambda.EventFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,9 +19,7 @@ import java.util.stream.Collectors;
  */
 public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
-    private final ObjectMapper mapper = new ObjectMapper();
-    private final RequestFactory requestFactory = new RequestFactory(mapper);
-    private final ResponseFactory responseFactory = new ResponseFactory(mapper);
+    private final EventFactory eventFactory = new EventFactory(new ObjectMapper());
 
     private String getPageLocation() throws IOException {
         URL url = new URL("https://checkip.amazonaws.com");
@@ -36,11 +33,11 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
         System.out.println(event);
 
         try {
-            Map<String, Object> body = requestFactory.readBody(event.getBody());
+            Map<String, Object> body = eventFactory.readBody(event.getBody());
             body.put("location", this.getPageLocation());
-            return responseFactory.makeSuccessResponse(body);
+            return eventFactory.makeSuccessResponse(body);
         } catch (IOException e) {
-            return responseFactory.makeErrorResponse(e);
+            return eventFactory.makeErrorResponse(e);
         }
     }
 }

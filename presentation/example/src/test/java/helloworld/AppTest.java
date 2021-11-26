@@ -3,7 +3,7 @@ package helloworld;
 import com.amazonaws.lambda.thirdparty.com.fasterxml.jackson.databind.ObjectMapper;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
-import deloitte.advantage.lambda.RequestFactory;
+import deloitte.advantage.lambda.EventFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +18,7 @@ class AppTest {
 
     final APIGatewayProxyRequestEvent event = new APIGatewayProxyRequestEvent();
 
-    RequestFactory requestFactory = new RequestFactory(new ObjectMapper());
+    EventFactory requestFactory = new EventFactory(new ObjectMapper());
 
     @Test
     void completesSuccessfully() {
