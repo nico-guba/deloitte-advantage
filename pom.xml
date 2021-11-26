@@ -31,6 +31,7 @@
         <aws-lambda-java-events.version>3.10.0</aws-lambda-java-events.version>
         <aws.lambda.java.tests.version>1.1.0</aws.lambda.java.tests.version>
         <aws.lambda.java.serialization.version>1.0.0</aws.lambda.java.serialization.version>
+        <orika.core.version>1.5.4</orika.core.version>
     </properties>
 
     <dependencyManagement>
@@ -100,6 +101,11 @@
                 <groupId>com.amazonaws</groupId>
                 <artifactId>aws-lambda-java-serialization</artifactId>
                 <version>${aws.lambda.java.serialization.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ma.glasnost.orika</groupId>
+                <artifactId>orika-core</artifactId>
+                <version>${orika.core.version}</version>
             </dependency>
 
             <!-- Testing Application Dependencies -->

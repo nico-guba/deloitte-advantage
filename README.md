@@ -13,10 +13,9 @@
   Responsible for containing testing dependencies that help with any lambda/integration testing.
 
 ## Tech
-- [Spring-Boot] - Web Framework
 - [Junit5] - Unit Testing Framework
 - [Docker] - Containerized environment.
-
+- [orika] - A conversion framework, not sure if we will keep this or not yet, still seeing if its suitable.
 ## Installation
 
 Installation Guide

@@ -20,6 +20,12 @@ public final class DomainTestFactory {
         return Zone.create(createTennisZoneId());
     }
 
+    public static Zone createTennisZoneWithFacility() {
+        Zone zone = createBlankTennisZone();
+        zone.addFacility(createA1TennisFacility());
+        return zone;
+    }
+
     public static FacilityId createA1TennisFacilityId() {
         return FacilityId.valueOf(TENNIS_FACILITY_ID_A1_AS_UUID);
     }
