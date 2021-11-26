@@ -10,6 +10,7 @@
     <file url="file://$PROJECT_DIR$/presentation/presentation-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/presentation/rest-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/presentation/rest-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test-support-lambda/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/test-support/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zone-lambda/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/zone-lambda/src/main/resources" charset="UTF-8" />

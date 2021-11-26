@@ -20,7 +20,7 @@ public class RestGateway implements RequestHandler<APIGatewayProxyRequestEvent, 
     @Override
     public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent input, Context context) {
         try {
-            System.out.println(input.getBody());
+            context.getLogger().log(input.getBody());
             Map<String, Object> body = factory.readBody(input.getBody());
             switch (input.getHttpMethod()) {
                 case "POST":

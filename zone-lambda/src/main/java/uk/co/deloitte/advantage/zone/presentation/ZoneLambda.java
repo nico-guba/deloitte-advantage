@@ -32,5 +32,4 @@ public final class ZoneLambda implements RequestHandler<ZoneIdMessage, String> {
             return "Error parsing json.";
         }
     }
-
 }

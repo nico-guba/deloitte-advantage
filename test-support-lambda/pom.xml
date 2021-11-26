@@ -8,19 +8,15 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>test-support-lambda</artifactId>
-
-    <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <json.assert.version>1.5.0</json.assert.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>uk.co.deloitte.advantage</groupId>
             <artifactId>test-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-lambda-java-core</artifactId>
         </dependency>
         <dependency>
             <groupId>com.amazonaws</groupId>
@@ -29,8 +25,6 @@
         <dependency>
             <groupId>org.skyscreamer</groupId>
             <artifactId>jsonassert</artifactId>
-            <version>${json.assert.version}</version>
         </dependency>
     </dependencies>
-
 </project>
