@@ -13,6 +13,8 @@ class RestGatewayTest {
 
     APIGatewayProxyRequestEvent event = new APIGatewayProxyRequestEvent();
 
+    TestContext context = new TestContext();
+
     @BeforeEach
     void setUp() {
         event.setHttpMethod("POST");
@@ -37,7 +39,7 @@ class RestGatewayTest {
     }
 
     private void assertStatus(int expected) {
-        APIGatewayProxyResponseEvent response = api.handleRequest(event, null);
+        APIGatewayProxyResponseEvent response = api.handleRequest(event, context);
         Assertions.assertEquals(expected, response.getStatusCode());
     }
 }
