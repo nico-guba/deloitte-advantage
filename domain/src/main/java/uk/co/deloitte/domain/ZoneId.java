@@ -40,9 +40,7 @@ public final class ZoneId implements ValueObject {
 
     @Override
     public String toString() {
-        return new StringJoiner(", ", String.format("%s[", ZoneId.class.getSimpleName()), "]")
-                .add(String.format("value=%s", value))
-                .toString();
+        return value.toString();
     }
 
     public UUID toUUID() {
