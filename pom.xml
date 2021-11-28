@@ -6,7 +6,6 @@
         <module>domain</module>
         <module>infrastructure</module>
         <module>application</module>
-        <module>zone-lambda</module>
         <module>test-support</module>
         <module>test-support-lambda</module>
         <module>presentation</module>

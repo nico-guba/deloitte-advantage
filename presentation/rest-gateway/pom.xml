@@ -8,7 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <name>Example REST Gateway where single lambda handles multiple HTTP verbs</name>
+    <name>REST Gateway example</name>
     <artifactId>rest-gateway</artifactId>
     <dependencies>
         <dependency>

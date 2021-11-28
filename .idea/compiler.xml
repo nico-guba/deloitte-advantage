@@ -9,9 +9,9 @@
         <module name="presentation-common" />
         <module name="test-support" />
         <module name="application" />
+        <module name="zone" />
         <module name="infrastructure" />
         <module name="domain" />
-        <module name="zone-lambda" />
         <module name="deloitte-advantage" />
         <module name="test-support-lambda" />
         <module name="rest-gateway" />
@@ -30,6 +30,7 @@
       <module name="rest-gateway" target="11" />
       <module name="test-support" target="11" />
       <module name="test-support-lambda" target="11" />
+      <module name="zone" target="11" />
       <module name="zone-lambda" target="11" />
     </bytecodeTargetLevel>
   </component>

@@ -15,5 +15,6 @@
         <module>example</module>
         <module>rest-gateway</module>
         <module>presentation-common</module>
+        <module>zone</module>
     </modules>
 </project>

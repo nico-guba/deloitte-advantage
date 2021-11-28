@@ -44,7 +44,7 @@ public final class ZoneLambda implements RequestHandler<ZoneIdMessage, ZoneResou
         if (zone == null) {
             throw new IllegalArgumentException("Error, zone does not exist by id " + msg.getId());
         }
-        /**
+        /*
          * returns the given zone queried if present, this object gets auto translated to json by aws library.
          *
          * Example Output:
