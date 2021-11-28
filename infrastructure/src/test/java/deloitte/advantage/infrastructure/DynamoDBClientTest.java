@@ -6,8 +6,9 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperConfig;
 import org.junit.jupiter.api.Test;
-import uk.co.deloitte.domain.Zone;
-import uk.co.deloitte.domain.ZoneId;
+import uk.co.deloitte.domain.site.SiteId;
+import uk.co.deloitte.domain.zone.Zone;
+import uk.co.deloitte.domain.zone.ZoneId;
 
 class DynamoDBClientTest {
 
@@ -19,7 +20,7 @@ class DynamoDBClientTest {
         AmazonDynamoDB client = AmazonDynamoDBClient.builder().withRegion(Regions.EU_WEST_2).build();
         DynamoDBMapper mapper = new DynamoDBMapper(client, DynamoDBMapperConfig.DEFAULT);
 
-        Zone zone = Zone.create(ZoneId.randomId());
+        Zone zone = Zone.create(ZoneId.randomId(), SiteId.randomId());
 
         mapper.save(ZoneTable.with(zone));
     }

@@ -5,7 +5,7 @@ import ma.glasnost.orika.MappingContext;
 import ma.glasnost.orika.metadata.Type;
 import uk.co.deloitte.advantage.zone.presentation.resources.FacilityResource;
 import uk.co.deloitte.advantage.zone.presentation.resources.ZoneResource;
-import uk.co.deloitte.domain.Zone;
+import uk.co.deloitte.domain.zone.Zone;
 
 import java.util.Set;
 import java.util.stream.Collectors;

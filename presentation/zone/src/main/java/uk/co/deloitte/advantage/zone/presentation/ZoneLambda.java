@@ -5,7 +5,8 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import uk.co.deloitte.advantage.application.InMemoryZoneRepository;
 import uk.co.deloitte.advantage.zone.presentation.converters.ConverterRegistry;
 import uk.co.deloitte.advantage.zone.presentation.resources.ZoneResource;
-import uk.co.deloitte.domain.*;
+import uk.co.deloitte.domain.site.SiteId;
+import uk.co.deloitte.domain.zone.*;
 
 import java.util.UUID;
 
@@ -17,7 +18,7 @@ public final class ZoneLambda implements RequestHandler<ZoneIdMessage, ZoneResou
 
     public ZoneLambda() {
         ZoneId zoneId = ZoneId.valueOf(UUID.fromString("359dfe3f-aaad-461c-87a7-08d9368584f1"));
-        Zone zone = Zone.create(zoneId);
+        Zone zone = Zone.create(zoneId, SiteId.randomId());
         zone.addFacility(Facility.create(FacilityId.valueOf(UUID.randomUUID())));
         zoneRepository.create(zone);
     }

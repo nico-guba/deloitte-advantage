@@ -1,7 +1,8 @@
-package uk.co.deloitte.domain;
+package uk.co.deloitte.domain.zone;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import uk.co.deloitte.domain.DomainTestFactory;
 import uk.co.deloitte.domain.ddd.support.EntityEqualityVerifier;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -48,16 +49,17 @@ class ZoneTest implements EntityEqualityVerifier<Zone> {
     @Test
     @DisplayName("ToString with empty facilities.")
     void toStringWithEmptyFacilitiesTest() {
-        assertEquals("Zone[id=ZoneId[value=359dfe3f-aaad-461c-87a7-08d9368584f1], facilities={}]", actual.toString());
+        assertEquals("Zone[id=359dfe3f-aaad-461c-87a7-08d9368584f1, siteId=c690449a-eab4-49a9-981c-42ba6afe35e6, facilities={}]", actual.toString());
     }
 
     @Test
     @DisplayName("ToString with a single facilities.")
     void toStringWithSingleFacilitiesTest() {
         addA1TennisFacility();
-        assertEquals("Zone[id=ZoneId[value=359dfe3f-aaad-461c-87a7-08d9368584f1], " +
-                "facilities={FacilityId[value=a3b6fbea-8fc6-4233-94a7-dd60e175c02c]=Facility" +
-                "[id=FacilityId[value=a3b6fbea-8fc6-4233-94a7-dd60e175c02c]]}]", actual.toString());
+        assertEquals("Zone[id=359dfe3f-aaad-461c-87a7-08d9368584f1, " +
+                "siteId=c690449a-eab4-49a9-981c-42ba6afe35e6, " +
+                "facilities={FacilityId[value=a3b6fbea-8fc6-4233-94a7-dd60e175c02c]=" +
+                "Facility[id=FacilityId[value=a3b6fbea-8fc6-4233-94a7-dd60e175c02c]]}]", actual.toString());
     }
 
     @Override
@@ -75,6 +77,6 @@ class ZoneTest implements EntityEqualityVerifier<Zone> {
     }
 
     private static void createInvalidZone() {
-        Zone.create(null);
+        Zone.create(null, DomainTestFactory.createManchesterTennisSiteId());
     }
 }

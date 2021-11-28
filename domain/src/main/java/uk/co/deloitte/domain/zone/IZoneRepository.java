@@ -1,4 +1,4 @@
-package uk.co.deloitte.domain;
+package uk.co.deloitte.domain.zone;
 
 import uk.co.deloitte.domain.ddd.DomainRepository;
 

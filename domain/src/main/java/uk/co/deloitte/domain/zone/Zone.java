@@ -1,6 +1,7 @@
-package uk.co.deloitte.domain;
+package uk.co.deloitte.domain.zone;
 
 import uk.co.deloitte.domain.ddd.Aggregate;
+import uk.co.deloitte.domain.site.SiteId;
 
 import java.util.*;
 
@@ -15,17 +16,20 @@ public final class Zone implements Aggregate<ZoneId> {
 
     private final ZoneId id;
 
+    private final SiteId siteId;
+
     private final Map<FacilityId, Facility> facilities = new HashMap<>();
 
-    private Zone(ZoneId id) {
+    private Zone(ZoneId id, SiteId siteId) {
         this.id = id;
+        this.siteId = siteId;
     }
 
-    public static Zone create(ZoneId id) {
+    public static Zone create(ZoneId id, SiteId siteId) {
         if(id == null) {
             throw new IllegalArgumentException("Zone must contain a present value.");
         }
-        return new Zone(id);
+        return new Zone(id, siteId);
     }
 
     @Override
@@ -45,6 +49,7 @@ public final class Zone implements Aggregate<ZoneId> {
     public String toString() {
         return new StringJoiner(", ", String.format("%s[", Zone.class.getSimpleName()), "]")
                 .add(String.format("id=%s", id))
+                .add(String.format("siteId=%s", siteId))
                 .add(String.format("facilities=%s", facilities))
                 .toString();
     }
@@ -67,6 +72,10 @@ public final class Zone implements Aggregate<ZoneId> {
 
     public Map<FacilityId, Facility> getFacilities() {
         return Collections.unmodifiableMap(facilities);
+    }
+
+    public SiteId getSiteId() {
+        return siteId;
     }
 
     @Override

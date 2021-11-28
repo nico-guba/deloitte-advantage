@@ -3,10 +3,10 @@ package deloitte.advantage.infrastructure;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import uk.co.deloitte.domain.Zone;
-import uk.co.deloitte.domain.ZoneId;
+import uk.co.deloitte.domain.zone.Zone;
+import uk.co.deloitte.domain.zone.ZoneId;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ZoneRepositoryDDBTest {
 

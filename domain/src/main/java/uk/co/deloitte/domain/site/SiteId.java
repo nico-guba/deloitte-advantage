@@ -1,27 +1,26 @@
-package uk.co.deloitte.domain;
+package uk.co.deloitte.domain.site;
 
 import uk.co.deloitte.domain.ddd.ValueObject;
 
 import java.util.Objects;
-import java.util.StringJoiner;
 import java.util.UUID;
 
-public final class ZoneId implements ValueObject {
+public final class SiteId implements ValueObject {
 
     private final UUID value;
 
-    private ZoneId(UUID value) {
+    private SiteId(UUID value) {
         this.value = value;
     }
 
-    public static ZoneId valueOf(UUID value) {
+    public static SiteId valueOf(UUID value) {
         if(value == null) {
-            throw new IllegalArgumentException("ZoneId must contain a present value.");
+            throw new IllegalArgumentException("SiteId must contain a present value.");
         }
-        return new ZoneId(value);
+        return new SiteId(value);
     }
 
-    public static ZoneId randomId() {
+    public static SiteId randomId() {
         return valueOf(UUID.randomUUID());
     }
 
@@ -29,7 +28,7 @@ public final class ZoneId implements ValueObject {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ZoneId zoneId = (ZoneId) o;
+        SiteId zoneId = (SiteId) o;
         return Objects.equals(value, zoneId.value);
     }
 

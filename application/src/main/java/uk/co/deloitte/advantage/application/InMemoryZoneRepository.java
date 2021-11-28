@@ -1,9 +1,9 @@
 package uk.co.deloitte.advantage.application;
 
 
-import uk.co.deloitte.domain.IZoneRepository;
-import uk.co.deloitte.domain.Zone;
-import uk.co.deloitte.domain.ZoneId;
+import uk.co.deloitte.domain.zone.IZoneRepository;
+import uk.co.deloitte.domain.zone.Zone;
+import uk.co.deloitte.domain.zone.ZoneId;
 
 import java.util.HashMap;
 import java.util.Map;

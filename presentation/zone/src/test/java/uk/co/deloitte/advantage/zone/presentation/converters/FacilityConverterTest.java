@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import uk.co.deloitte.advantage.zone.presentation.PresentationTestFactory;
 import uk.co.deloitte.advantage.zone.presentation.resources.FacilityResource;
 import uk.co.deloitte.domain.DomainTestFactory;
-import uk.co.deloitte.domain.Facility;
+import uk.co.deloitte.domain.zone.Facility;
 
 import java.util.HashMap;
 

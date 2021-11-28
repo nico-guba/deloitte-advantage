@@ -1,8 +1,9 @@
 package deloitte.advantage.infrastructure;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import uk.co.deloitte.domain.Zone;
-import uk.co.deloitte.domain.ZoneId;
+import uk.co.deloitte.domain.site.SiteId;
+import uk.co.deloitte.domain.zone.Zone;
+import uk.co.deloitte.domain.zone.ZoneId;
 
 /**
  * Dynamo DB backed Zone Repository
@@ -24,7 +25,7 @@ public class ZoneRepositoryDDBMapped {
     }
 
     public Zone create(ZoneId id) {
-        Zone zone = Zone.create(id);
+        Zone zone = Zone.create(id, SiteId.randomId());
         db.save(ZoneTable.with(zone));
         return zone;
     }

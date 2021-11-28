@@ -1,7 +1,8 @@
-package uk.co.deloitte.domain;
+package uk.co.deloitte.domain.zone;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import uk.co.deloitte.domain.DomainTestFactory;
 import uk.co.deloitte.test.support.EqualityVerifier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

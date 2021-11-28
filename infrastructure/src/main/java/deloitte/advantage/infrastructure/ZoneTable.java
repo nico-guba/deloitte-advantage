@@ -2,7 +2,7 @@ package deloitte.advantage.infrastructure;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-import uk.co.deloitte.domain.Zone;
+import uk.co.deloitte.domain.zone.Zone;
 
 import java.util.Objects;
 import java.util.StringJoiner;
