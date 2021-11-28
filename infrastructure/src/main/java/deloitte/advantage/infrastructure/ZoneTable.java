@@ -1,4 +1,4 @@
-package deloitte.advantage.ddb;
+package deloitte.advantage.infrastructure;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
@@ -17,8 +17,20 @@ public class ZoneTable {
         return zoneId;
     }
 
-    private ZoneTable(String zoneId) {
+    public void setZoneId(String zoneId) {
         this.zoneId = zoneId;
+    }
+
+    public ZoneTable(String zoneId) {
+        this.zoneId = zoneId;
+    }
+
+    /**
+     * I am not sure I like this mapping stuff.  Too much in the middle way, ie writing an entirely new class just
+     * to be able to do the same thing as the zone already does.  I leave this in for now and am implementing
+     * one which does the same thing a bit more low-level.
+     */
+    public ZoneTable() {
     }
 
     public static final ZoneTable with(Zone zone) {

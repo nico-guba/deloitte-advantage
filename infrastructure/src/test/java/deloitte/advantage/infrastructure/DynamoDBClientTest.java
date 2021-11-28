@@ -1,11 +1,10 @@
-package deloitte.advantage.ddb;
+package deloitte.advantage.infrastructure;
 
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperConfig;
-import deloitte.advantage.ddb.ZoneTable;
 import org.junit.jupiter.api.Test;
 import uk.co.deloitte.domain.Zone;
 import uk.co.deloitte.domain.ZoneId;
