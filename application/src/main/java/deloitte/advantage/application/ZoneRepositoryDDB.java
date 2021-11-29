@@ -7,6 +7,7 @@ import uk.co.deloitte.domain.zone.IZoneRepository;
 import uk.co.deloitte.domain.zone.Zone;
 import uk.co.deloitte.domain.zone.ZoneId;
 
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
@@ -30,14 +31,18 @@ public class ZoneRepositoryDDB implements IZoneRepository {
 
     @Override
     public void delete(ZoneId identifier) {
-
+        ZoneTable table = mapper.load(ZoneTable.class, identifier.toString());
+        mapper.delete(table);
     }
 
     @Override
-    public Zone read(ZoneId identifier) {
+    public Optional<Zone> read(ZoneId identifier) {
         ZoneTable table = mapper.load(ZoneTable.class, identifier.toString());
-        return Zone.create(ZoneId.valueOf(UUID.fromString(table.getId())),
+        if (table == null) return Optional.empty();
+
+        Zone zone = Zone.create(ZoneId.valueOf(UUID.fromString(table.getId())),
                 SiteId.valueOf(UUID.fromString(table.getSiteId())));
+        return Optional.of(zone);
     }
 
     @Override

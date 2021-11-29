@@ -11,6 +11,8 @@ import uk.co.deloitte.domain.zone.IZoneRepository;
 import uk.co.deloitte.domain.zone.Zone;
 import uk.co.deloitte.domain.zone.ZoneId;
 
+import java.util.Optional;
+
 
 /**
  * WARNING! THIS NEEDS TESTS, IT IS JUST AN EXAMPLE TO SEE IF DOMAIN MODEL MAKES SENSE
@@ -35,25 +37,25 @@ public final class ZoneService implements ApplicationService {
 
     /**
      * TODO!! From the looks of it, the OrganisationId can also live within Zone, this will optimise
-     * the query as it removes the need to then query the {@link SiteRepository}.
+     * the query as it removes the need to then query the {@link ISiteRepository}.
      */
     public Organisation findOrganisationFromZone(ZoneId zoneId) {
-        Zone zone = zoneRepository.read(zoneId);
-        if(zone == null) {
+        Optional<Zone> zone = zoneRepository.read(zoneId);
+        if(zone.isEmpty()) {
             throw new IllegalArgumentException(String.format("Zone not present for zone id=%s", zoneId));
         }
-        SiteId siteId = zone.getSiteId();
-        Site site = siteRepository.read(siteId);
-        if(site == null) {
+        SiteId siteId = zone.get().getSiteId();
+        Optional<Site> site = siteRepository.read(siteId);
+        if(site.isEmpty()) {
             throw new IllegalArgumentException(String.format("Site not present for site id=%s", siteId));
         }
 
-        OrganisationId organisationId = site.getOrganisationId();
-        Organisation organisation = organisationRepository.read(organisationId);
-        if(organisation == null) {
+        OrganisationId organisationId = site.get().getOrganisationId();
+        Optional<Organisation> organisation = organisationRepository.read(organisationId);
+        if(organisation.isEmpty()) {
             throw new IllegalArgumentException(String.format("Organisation not present for Organisation id=%s", organisationId));
         }
-        return organisation;
+        return organisation.get();
     }
 
 }

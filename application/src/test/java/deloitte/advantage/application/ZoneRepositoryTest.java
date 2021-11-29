@@ -3,13 +3,12 @@ package deloitte.advantage.application;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import deloitte.advantage.infrastructure.dynamodb.DynamoDBMapperFactory;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
 import uk.co.deloitte.domain.site.SiteId;
 import uk.co.deloitte.domain.zone.IZoneRepository;
 import uk.co.deloitte.domain.zone.Zone;
 import uk.co.deloitte.domain.zone.ZoneId;
 
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,31 +17,48 @@ class ZoneRepositoryTest {
 
     private static DynamoDBMapper  dynamoDBMapper = DynamoDBMapperFactory.createMapper();
 
-    @ParameterizedTest
-    @MethodSource("implementationProvider")
-    void create_returns_expected_aggregate_id(IZoneRepository repo) {
-        ZoneId zoneId = ZoneId.randomId();
-        Zone aggregate = Zone.create(zoneId, SiteId.randomId());
+    ZoneId zoneId = ZoneId.randomId();
 
-        ZoneId aggregateId = repo.create(aggregate);
+    @DualTest
+    void create_returns_expected_aggregate_id(IZoneRepository repo) {
+        Zone aggregate = makeAggregate();
+
+        ZoneId aggregateId = saveAggregate(repo, aggregate);
 
         assertEquals(zoneId, aggregateId);
     }
 
-    @Test
-    void delete() {
+    private ZoneId saveAggregate(IZoneRepository repo, Zone aggregate) {
+        return repo.create(aggregate);
     }
 
-    @ParameterizedTest
-    @MethodSource("implementationProvider")
-    void read_expected_aggregate(IZoneRepository repo) {
-        ZoneId zoneId = ZoneId.randomId();
-        Zone expected = Zone.create(zoneId, SiteId.randomId());
-        repo.create(expected);
+    private Zone makeAggregate() {
+        return Zone.create(zoneId, SiteId.randomId());
+    }
 
-        Zone actual = repo.read(zoneId);
+    @DualTest
+    void delete(IZoneRepository repo) {
+        Zone aggregate = makeAggregate();
+        saveAggregate(repo, aggregate);
 
-        assertEquals(expected, actual);
+        repo.delete(zoneId);
+
+        Optional<Zone> actual = readAggregate(repo);
+        assertTrue(actual.isEmpty());
+    }
+
+    @DualTest
+    void read_saved_aggregate(IZoneRepository repo) {
+        Zone expected = makeAggregate();
+        saveAggregate(repo, expected);
+
+        Optional<Zone> actual = readAggregate(repo);
+
+        assertEquals(expected, actual.get());
+    }
+
+    private Optional<Zone> readAggregate(IZoneRepository repo) {
+        return repo.read(zoneId);
     }
 
     @Test
@@ -56,4 +72,6 @@ class ZoneRepositoryTest {
     static Stream<IZoneRepository> implementationProvider() {
         return Stream.of(new InMemoryZoneRepository(), new ZoneRepositoryDDB(dynamoDBMapper));
     }
+
+
 }

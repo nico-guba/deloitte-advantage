@@ -7,6 +7,7 @@ import uk.co.deloitte.domain.zone.ZoneId;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -33,8 +34,8 @@ public final class InMemoryZoneRepository implements IZoneRepository {
     }
 
     @Override
-    public Zone read(ZoneId id) {
-        return aggregates.get(id);
+    public Optional<Zone> read(ZoneId id) {
+        return Optional.ofNullable(aggregates.get(id));
     }
 
     @Override

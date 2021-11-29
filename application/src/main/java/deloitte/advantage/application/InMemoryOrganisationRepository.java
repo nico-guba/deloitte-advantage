@@ -3,9 +3,11 @@ package deloitte.advantage.application;
 import uk.co.deloitte.domain.Organisation;
 import uk.co.deloitte.domain.OrganisationId;
 import uk.co.deloitte.domain.IOrganisationRepository;
+import uk.co.deloitte.domain.zone.Zone;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public final class InMemoryOrganisationRepository implements IOrganisationRepository {
 
@@ -27,8 +29,8 @@ public final class InMemoryOrganisationRepository implements IOrganisationReposi
     }
 
     @Override
-    public Organisation read(OrganisationId id) {
-        return aggregates.get(id);
+    public Optional<Organisation> read(OrganisationId id) {
+        return Optional.ofNullable(aggregates.get(id));
     }
 
     @Override

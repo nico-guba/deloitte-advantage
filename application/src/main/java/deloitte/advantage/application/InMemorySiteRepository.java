@@ -3,9 +3,11 @@ package deloitte.advantage.application;
 import uk.co.deloitte.domain.site.Site;
 import uk.co.deloitte.domain.site.SiteId;
 import uk.co.deloitte.domain.site.ISiteRepository;
+import uk.co.deloitte.domain.zone.Zone;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public final class InMemorySiteRepository implements ISiteRepository {
 
@@ -27,8 +29,8 @@ public final class InMemorySiteRepository implements ISiteRepository {
     }
 
     @Override
-    public Site read(SiteId id) {
-        return aggregates.get(id);
+    public Optional<Site> read(SiteId id) {
+        return Optional.ofNullable(aggregates.get(id));
     }
 
     @Override
