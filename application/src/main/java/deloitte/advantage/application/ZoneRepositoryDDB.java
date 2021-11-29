@@ -2,11 +2,13 @@ package deloitte.advantage.application;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import deloitte.advantage.infrastructure.dynamodb.ZoneTable;
+import uk.co.deloitte.domain.site.SiteId;
 import uk.co.deloitte.domain.zone.IZoneRepository;
 import uk.co.deloitte.domain.zone.Zone;
 import uk.co.deloitte.domain.zone.ZoneId;
 
 import java.util.Set;
+import java.util.UUID;
 
 public class ZoneRepositoryDDB implements IZoneRepository {
 
@@ -33,7 +35,9 @@ public class ZoneRepositoryDDB implements IZoneRepository {
 
     @Override
     public Zone read(ZoneId identifier) {
-        return null;
+        ZoneTable table = mapper.load(ZoneTable.class, identifier.toString());
+        return Zone.create(ZoneId.valueOf(UUID.fromString(table.getId())),
+                SiteId.valueOf(UUID.fromString(table.getSiteId())));
     }
 
     @Override

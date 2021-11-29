@@ -33,8 +33,16 @@ class ZoneRepositoryTest {
     void delete() {
     }
 
-    @Test
-    void read() {
+    @ParameterizedTest
+    @MethodSource("implementationProvider")
+    void read_expected_aggregate(IZoneRepository repo) {
+        ZoneId zoneId = ZoneId.randomId();
+        Zone expected = Zone.create(zoneId, SiteId.randomId());
+        repo.create(expected);
+
+        Zone actual = repo.read(zoneId);
+
+        assertEquals(expected, actual);
     }
 
     @Test
