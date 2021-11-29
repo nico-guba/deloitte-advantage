@@ -77,6 +77,6 @@ class ZoneTest implements EntityEqualityVerifier<Zone> {
     }
 
     private static void createInvalidZone() {
-        Zone.create(null, DomainTestFactory.createManchesterTennisSiteId());
+        Zone.create(null, DomainTestFactory.createManchesterTennisSiteId(), "Tennis");
     }
 }

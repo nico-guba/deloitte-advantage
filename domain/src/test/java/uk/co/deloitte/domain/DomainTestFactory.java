@@ -31,7 +31,7 @@ public final class DomainTestFactory {
     }
 
     public static Zone createBlankTennisZone() {
-        return Zone.create(createTennisZoneId(), createManchesterTennisSiteId());
+        return Zone.create(createTennisZoneId(), createManchesterTennisSiteId(), "Tennis");
     }
 
     public static Zone createTennisZoneWithFacility() {

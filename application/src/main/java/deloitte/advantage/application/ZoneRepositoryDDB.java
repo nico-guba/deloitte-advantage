@@ -7,6 +7,7 @@ import uk.co.deloitte.domain.zone.IZoneRepository;
 import uk.co.deloitte.domain.zone.Zone;
 import uk.co.deloitte.domain.zone.ZoneId;
 
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
@@ -21,12 +22,18 @@ public class ZoneRepositoryDDB implements IZoneRepository {
 
     @Override
     public ZoneId create(Zone aggregate) {
-        ZoneTable table = new ZoneTable();
-        table.setId(aggregate.id().toString());
-        table.setSiteId(aggregate.getSiteId().toString());
+        ZoneTable table = convert(aggregate);
         mapper.save(table);
 
         return aggregate.id();
+    }
+
+    private ZoneTable convert(Zone aggregate) {
+        ZoneTable table = new ZoneTable();
+        table.setId(aggregate.id().toString());
+        table.setSiteId(aggregate.getSiteId().toString());
+        table.setName(aggregate.getName());
+        return table;
     }
 
     @Override
@@ -41,17 +48,14 @@ public class ZoneRepositoryDDB implements IZoneRepository {
         if (table == null) return Optional.empty();
 
         Zone zone = Zone.create(ZoneId.valueOf(UUID.fromString(table.getId())),
-                SiteId.valueOf(UUID.fromString(table.getSiteId())));
+                SiteId.valueOf(UUID.fromString(table.getSiteId())), table.getName());
+
         return Optional.of(zone);
     }
 
     @Override
     public void update(Zone aggregate) {
-
-    }
-
-    @Override
-    public Set<Zone> findAll() {
-        return null;
+        ZoneTable table = convert(aggregate);
+        mapper.save(table);
     }
 }

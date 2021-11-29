@@ -8,70 +8,74 @@ import uk.co.deloitte.domain.zone.IZoneRepository;
 import uk.co.deloitte.domain.zone.Zone;
 import uk.co.deloitte.domain.zone.ZoneId;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ZoneRepositoryTest {
 
-    private static DynamoDBMapper  dynamoDBMapper = DynamoDBMapperFactory.createMapper();
-
-    ZoneId zoneId = ZoneId.randomId();
+    private static DynamoDBMapper dynamoDBMapper = DynamoDBMapperFactory.createMapper();
 
     @DualTest
     void create_returns_expected_aggregate_id(IZoneRepository repo) {
-        Zone aggregate = makeAggregate();
+        ZoneId zoneId = ZoneId.randomId();
 
-        ZoneId aggregateId = saveAggregate(repo, aggregate);
+        ZoneId id = makeAggregate(repo, zoneId);
 
-        assertEquals(zoneId, aggregateId);
-    }
-
-    private ZoneId saveAggregate(IZoneRepository repo, Zone aggregate) {
-        return repo.create(aggregate);
-    }
-
-    private Zone makeAggregate() {
-        return Zone.create(zoneId, SiteId.randomId());
+        assertEquals(zoneId, id);
     }
 
     @DualTest
     void delete(IZoneRepository repo) {
-        Zone aggregate = makeAggregate();
-        saveAggregate(repo, aggregate);
+        ZoneId id = makeAggregate(repo);
 
-        repo.delete(zoneId);
+        repo.delete(id);
 
-        Optional<Zone> actual = readAggregate(repo);
+        Optional<Zone> actual = readAggregate(repo, id);
         assertTrue(actual.isEmpty());
     }
 
     @DualTest
     void read_saved_aggregate(IZoneRepository repo) {
-        Zone expected = makeAggregate();
-        saveAggregate(repo, expected);
+        ZoneId id = makeAggregate(repo);
 
-        Optional<Zone> actual = readAggregate(repo);
+        Optional<Zone> actual = readAggregate(repo, id);
 
-        assertEquals(expected, actual.get());
+        assertEquals(id, actual.get().id());
     }
 
-    private Optional<Zone> readAggregate(IZoneRepository repo) {
-        return repo.read(zoneId);
+
+    @DualTest
+    void update(IZoneRepository repo) {
+        ZoneId id = makeAggregate(repo);
+        Zone zone = readAggregate(repo, id).get();
+        assertEquals("Beach Volleyball", zone.getName());
+
+        zone.setName("Women's Beach Volleyball");
+        repo.update(zone);
+
+        Zone actual = readAggregate(repo, id).get();
+        assertEquals("Women's Beach Volleyball", actual.getName());
     }
 
-    @Test
-    void update() {
-    }
-
-    @Test
-    void findAll() {
+    private Optional<Zone> readAggregate(IZoneRepository repo, ZoneId id) {
+        return repo.read(id);
     }
 
     static Stream<IZoneRepository> implementationProvider() {
         return Stream.of(new InMemoryZoneRepository(), new ZoneRepositoryDDB(dynamoDBMapper));
     }
 
+    private ZoneId makeAggregate(IZoneRepository repo, ZoneId zoneId) {
+        Zone aggregate = Zone.create(zoneId, SiteId.randomId(), "Beach Volleyball");
+        repo.create(aggregate);
+        return aggregate.id();
+    }
 
+    private ZoneId makeAggregate(IZoneRepository repo) {
+        return makeAggregate(repo, ZoneId.randomId());
+    }
 }

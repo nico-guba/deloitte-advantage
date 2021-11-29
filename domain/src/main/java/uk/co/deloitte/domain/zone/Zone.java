@@ -18,18 +18,21 @@ public final class Zone implements Aggregate<ZoneId> {
 
     private final SiteId siteId;
 
+    private String name;
+
     private final Map<FacilityId, Facility> facilities = new HashMap<>();
 
-    private Zone(ZoneId id, SiteId siteId) {
+    private Zone(ZoneId id, SiteId siteId, String name) {
         this.id = id;
         this.siteId = siteId;
+        this.name = name;
     }
 
-    public static Zone create(ZoneId id, SiteId siteId) {
+    public static Zone create(ZoneId id, SiteId siteId, String name) {
         if(id == null) {
             throw new IllegalArgumentException("Zone must contain a present value.");
         }
-        return new Zone(id, siteId);
+        return new Zone(id, siteId, name);
     }
 
     @Override
@@ -81,5 +84,13 @@ public final class Zone implements Aggregate<ZoneId> {
     @Override
     public ZoneId id() {
         return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -8,6 +8,8 @@ import uk.co.deloitte.advantage.zone.presentation.resources.ZoneResource;
 import uk.co.deloitte.domain.zone.Facility;
 import uk.co.deloitte.domain.zone.Zone;
 
+import java.util.Optional;
+
 /**
  * Currently using the <b>orika library</b> for converting domain objects to presentation objects.
  * Not sure if this is going to stay, need to figure out if this is ok or find a better one.

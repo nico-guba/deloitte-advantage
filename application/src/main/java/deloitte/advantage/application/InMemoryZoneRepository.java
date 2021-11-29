@@ -42,9 +42,4 @@ public final class InMemoryZoneRepository implements IZoneRepository {
     public void update(Zone aggregate) {
         aggregates.put(aggregate.id(), aggregate);
     }
-
-    @Override
-    public Set<Zone> findAll() {
-        return Set.copyOf(aggregates.values());
-    }
 }
