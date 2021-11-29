@@ -21,7 +21,7 @@ public final class ZoneLambda implements RequestHandler<ZoneIdMessage, ZoneResou
 
     public ZoneLambda() {
         Identity zoneId = Identity.valueOf(UUID.fromString("359dfe3f-aaad-461c-87a7-08d9368584f1"));
-        Zone zone = Zone.create(zoneId, Identity.randomId());
+        Zone zone = Zone.create(zoneId, Identity.unique());
         zone.addFacility(Facility.create(Identity.valueOf(UUID.randomUUID())));
         zoneRepository.create(zone);
     }

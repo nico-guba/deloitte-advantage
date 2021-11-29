@@ -26,7 +26,7 @@ class IdentityTest implements EqualityVerifier<Identity> {
     @Test
     @DisplayName("Create Identity with random UUID.")
     void createWithRandomUUIDTest() {
-        assertNotNull(Identity.randomId().toUUID());
+        assertNotNull(Identity.unique().toUUID());
     }
 
     @Test

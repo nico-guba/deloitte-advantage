@@ -16,7 +16,7 @@ class ZoneRepositoryTest {
 
     private static DynamoDBMapper  dynamoDBMapper = DynamoDBMapperFactory.createMapper();
 
-    Identity zoneId = Identity.randomId();
+    Identity zoneId = Identity.unique();
 
     @DualTest
     void create_returns_expected_aggregate_id(IZoneRepository repo) {
@@ -32,7 +32,7 @@ class ZoneRepositoryTest {
     }
 
     private Zone makeAggregate() {
-        return Zone.create(zoneId, Identity.randomId());
+        return Zone.create(zoneId, Identity.unique());
     }
 
     @DualTest

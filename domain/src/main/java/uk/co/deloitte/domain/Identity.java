@@ -20,7 +20,7 @@ public final class Identity implements ValueObject {
         return new Identity(value);
     }
 
-    public static Identity randomId() {
+    public static Identity unique() {
         return valueOf(UUID.randomUUID());
     }
 
