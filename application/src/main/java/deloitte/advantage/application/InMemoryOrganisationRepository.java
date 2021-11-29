@@ -1,4 +1,4 @@
-package uk.co.deloitte.advantage.application;
+package deloitte.advantage.application;
 
 import uk.co.deloitte.domain.Organisation;
 import uk.co.deloitte.domain.OrganisationId;

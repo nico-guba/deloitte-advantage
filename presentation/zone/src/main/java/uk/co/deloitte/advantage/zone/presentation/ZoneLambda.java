@@ -2,7 +2,7 @@ package uk.co.deloitte.advantage.zone.presentation;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import uk.co.deloitte.advantage.application.InMemoryZoneRepository;
+import deloitte.advantage.application.InMemoryZoneRepository;
 import uk.co.deloitte.advantage.zone.presentation.converters.ConverterRegistry;
 import uk.co.deloitte.advantage.zone.presentation.resources.ZoneResource;
 import uk.co.deloitte.domain.site.SiteId;
