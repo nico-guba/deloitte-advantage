@@ -1,6 +1,6 @@
 package uk.co.deloitte.domain.site;
 
-import uk.co.deloitte.domain.OrganisationId;
+import uk.co.deloitte.domain.Identity;
 import uk.co.deloitte.domain.ddd.Aggregate;
 
 import java.util.Objects;
@@ -10,18 +10,18 @@ import java.util.StringJoiner;
  * An {@link Organisation} may have one or more sites that they own and conduct business. This class
  * represents a singular site.
  */
-public final class Site implements Aggregate<SiteId> {
+public final class Site implements Aggregate<Identity> {
 
-    private final SiteId id;
+    private final Identity id;
 
-    private final OrganisationId organisationId;
+    private final Identity organisationId;
 
-    private Site(SiteId id, OrganisationId organisationId) {
+    private Site(Identity id, Identity organisationId) {
         this.id = id;
         this.organisationId = organisationId;
     }
 
-    public static Site create(SiteId id, OrganisationId organisationId) {
+    public static Site create(Identity id, Identity organisationId) {
         if(id == null) {
             throw new IllegalArgumentException("SiteId must contain a present value.");
         }
@@ -49,11 +49,11 @@ public final class Site implements Aggregate<SiteId> {
     }
 
     @Override
-    public SiteId id() {
+    public Identity id() {
         return id;
     }
 
-    public OrganisationId getOrganisationId() {
+    public Identity getOrganisationId() {
         return organisationId;
     }
 }

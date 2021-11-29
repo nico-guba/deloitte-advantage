@@ -1,5 +1,6 @@
 package uk.co.deloitte.domain.zone;
 
+import uk.co.deloitte.domain.Identity;
 import uk.co.deloitte.domain.ddd.Entity;
 
 import java.util.Objects;
@@ -13,15 +14,15 @@ import java.util.StringJoiner;
  * A Zone can be called Gym however the Gym may have 6 facilities, all running different equipment or activities such as
  * Boxing.
  */
-public final class Facility implements Entity<FacilityId> {
+public final class Facility implements Entity<Identity> {
 
-    private final FacilityId id;
+    private final Identity id;
 
-    private Facility(FacilityId id) {
+    private Facility(Identity id) {
         this.id = id;
     }
 
-    public static Facility create(FacilityId id) {
+    public static Facility create(Identity id) {
         if(id == null) {
             throw new IllegalArgumentException("Facility must contain a present value.");
         }
@@ -49,7 +50,7 @@ public final class Facility implements Entity<FacilityId> {
     }
 
     @Override
-    public FacilityId id() {
+    public Identity id() {
         return id;
     }
 }

@@ -1,7 +1,7 @@
 package uk.co.deloitte.domain.zone;
 
+import uk.co.deloitte.domain.Identity;
 import uk.co.deloitte.domain.ddd.Aggregate;
-import uk.co.deloitte.domain.site.SiteId;
 
 import java.util.*;
 
@@ -12,22 +12,22 @@ import java.util.*;
  * For example a Zone may be for Tennis whereby there are 4 facilities, each with a different field type or activity
  * playing at a given time.
  */
-public final class Zone implements Aggregate<ZoneId> {
+public final class Zone implements Aggregate<Identity> {
 
-    private final ZoneId id;
+    private final Identity id;
 
-    private final SiteId siteId;
+    private final Identity siteId;
 
-    private final Map<FacilityId, Facility> facilities = new HashMap<>();
+    private final Map<Identity, Facility> facilities = new HashMap<>();
 
-    private Zone(ZoneId id, SiteId siteId) {
+    private Zone(Identity id, Identity siteId) {
         this.id = id;
         this.siteId = siteId;
     }
 
-    public static Zone create(ZoneId id, SiteId siteId) {
+    public static Zone create(Identity id, Identity siteId) {
         if(id == null) {
-            throw new IllegalArgumentException("Zone must contain a present value.");
+            throw new IllegalArgumentException("Zone Identity must contain a present value.");
         }
         return new Zone(id, siteId);
     }
@@ -54,7 +54,7 @@ public final class Zone implements Aggregate<ZoneId> {
                 .toString();
     }
 
-    public Facility getFacility(FacilityId id) {
+    public Facility getFacility(Identity id) {
         return facilities.get(id);
     }
 
@@ -62,7 +62,7 @@ public final class Zone implements Aggregate<ZoneId> {
         facilities.put(facility.id(), facility);
     }
 
-    public void removeFacility(FacilityId id) {
+    public void removeFacility(Identity id) {
         facilities.remove(id);
     }
 
@@ -70,16 +70,16 @@ public final class Zone implements Aggregate<ZoneId> {
         return facilities.size();
     }
 
-    public Map<FacilityId, Facility> getFacilities() {
+    public Map<Identity, Facility> getFacilities() {
         return Collections.unmodifiableMap(facilities);
     }
 
-    public SiteId getSiteId() {
+    public Identity getSiteId() {
         return siteId;
     }
 
     @Override
-    public ZoneId id() {
+    public Identity id() {
         return id;
     }
 }

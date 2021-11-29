@@ -3,10 +3,9 @@ package deloitte.advantage.application;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import deloitte.advantage.infrastructure.dynamodb.DynamoDBMapperFactory;
 import org.junit.jupiter.api.Test;
-import uk.co.deloitte.domain.site.SiteId;
+import uk.co.deloitte.domain.Identity;
 import uk.co.deloitte.domain.zone.IZoneRepository;
 import uk.co.deloitte.domain.zone.Zone;
-import uk.co.deloitte.domain.zone.ZoneId;
 
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -17,23 +16,23 @@ class ZoneRepositoryTest {
 
     private static DynamoDBMapper  dynamoDBMapper = DynamoDBMapperFactory.createMapper();
 
-    ZoneId zoneId = ZoneId.randomId();
+    Identity zoneId = Identity.randomId();
 
     @DualTest
     void create_returns_expected_aggregate_id(IZoneRepository repo) {
         Zone aggregate = makeAggregate();
 
-        ZoneId aggregateId = saveAggregate(repo, aggregate);
+        Identity aggregateId = saveAggregate(repo, aggregate);
 
         assertEquals(zoneId, aggregateId);
     }
 
-    private ZoneId saveAggregate(IZoneRepository repo, Zone aggregate) {
+    private Identity saveAggregate(IZoneRepository repo, Zone aggregate) {
         return repo.create(aggregate);
     }
 
     private Zone makeAggregate() {
-        return Zone.create(zoneId, SiteId.randomId());
+        return Zone.create(zoneId, Identity.randomId());
     }
 
     @DualTest
