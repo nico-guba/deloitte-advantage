@@ -40,22 +40,16 @@ public final class ZoneService implements ApplicationService {
      * the query as it removes the need to then query the {@link ISiteRepository}.
      */
     public Organisation findOrganisationFromZone(ZoneId zoneId) {
-        Optional<Zone> zone = zoneRepository.read(zoneId);
-        if(zone.isEmpty()) {
-            throw new IllegalArgumentException(String.format("Zone not present for zone id=%s", zoneId));
-        }
-        SiteId siteId = zone.get().getSiteId();
-        Optional<Site> site = siteRepository.read(siteId);
-        if(site.isEmpty()) {
-            throw new IllegalArgumentException(String.format("Site not present for site id=%s", siteId));
-        }
+        Zone zone = zoneRepository.read(zoneId)
+                .orElseThrow(() -> new IllegalArgumentException(String.format("Zone not present for zone id=%s", zoneId)));
 
-        OrganisationId organisationId = site.get().getOrganisationId();
-        Optional<Organisation> organisation = organisationRepository.read(organisationId);
-        if(organisation.isEmpty()) {
-            throw new IllegalArgumentException(String.format("Organisation not present for Organisation id=%s", organisationId));
-        }
-        return organisation.get();
+        Site site = siteRepository.read(zone.getSiteId())
+                .orElseThrow(() -> new IllegalArgumentException(String.format("Site not present for site id=%s", zone.getSiteId())));
+
+        Organisation organisation = organisationRepository.read(site.getOrganisationId())
+                .orElseThrow(() -> new IllegalArgumentException(String.format("Organisation not present for Organisation id=%s", site.getOrganisationId())));
+
+        return organisation;
     }
 
 }
