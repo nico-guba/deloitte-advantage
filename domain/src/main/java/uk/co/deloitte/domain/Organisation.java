@@ -8,15 +8,15 @@ import java.util.StringJoiner;
 /**
  * Represents an organisation/company of the club.
  */
-public final class Organisation implements Aggregate<OrganisationId> {
+public final class Organisation implements Aggregate<Identity> {
 
-    private final OrganisationId id;
+    private final Identity id;
 
-    private Organisation(OrganisationId id) {
+    private Organisation(Identity id) {
         this.id = id;
     }
 
-    public static Organisation create(OrganisationId id) {
+    public static Organisation create(Identity id) {
         if(id == null) {
             throw new IllegalArgumentException("OrganisationId must contain a present value.");
         }
@@ -44,7 +44,7 @@ public final class Organisation implements Aggregate<OrganisationId> {
     }
 
     @Override
-    public OrganisationId id() {
+    public Identity id() {
         return id;
     }
 }

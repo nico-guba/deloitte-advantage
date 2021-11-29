@@ -2,32 +2,31 @@ package uk.co.deloitte.domain;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import uk.co.deloitte.domain.zone.ZoneId;
 import uk.co.deloitte.test.support.EqualityVerifier;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class OrganisationIdTest implements EqualityVerifier<OrganisationId> {
+class IdentityTest implements EqualityVerifier<Identity> {
 
-    private final OrganisationId actual = DomainTestFactory.createTennisClubOrganisationId();
+    private final Identity actual = DomainTestFactory.createTennisClubOrganisationId();
 
     @Test
     @DisplayName("Create OrganisationId with non-present value.")
     void createWithNullValueTest() {
-        IllegalArgumentException actual = assertThrows(IllegalArgumentException.class, OrganisationIdTest::createInvalidOrganisationId);
-        assertEquals("OrganisationId must contain a present value.", actual.getMessage());
+        IllegalArgumentException actual = assertThrows(IllegalArgumentException.class, IdentityTest::createInvalidOrganisationId);
+        assertEquals("Identity must contain a present value.", actual.getMessage());
     }
 
     @Test
-    @DisplayName("Create OrganisationId with present value.")
+    @DisplayName("Create Identity with present value.")
     void createWithValidValueTest() {
         assertEquals(DomainTestFactory.createTennisClubOrganisationId(), actual);
     }
 
     @Test
-    @DisplayName("Create OrganisationId with random UUID.")
+    @DisplayName("Create Identity with random UUID.")
     void createWithRandomUUIDTest() {
-        assertNotNull(ZoneId.randomId().toUUID());
+        assertNotNull(Identity.unique().toUUID());
     }
 
     @Test
@@ -43,12 +42,12 @@ class OrganisationIdTest implements EqualityVerifier<OrganisationId> {
     }
 
     @Override
-    public Class<? extends OrganisationId> typeClass() {
+    public Class<? extends Identity> typeClass() {
         return actual.getClass();
     }
 
     private static void createInvalidOrganisationId() {
-        OrganisationId.valueOf(null);
+        Identity.valueOf(null);
     }
 
 }

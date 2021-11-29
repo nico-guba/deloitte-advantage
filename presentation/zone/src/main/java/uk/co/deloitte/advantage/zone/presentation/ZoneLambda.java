@@ -5,10 +5,11 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import deloitte.advantage.application.InMemoryZoneRepository;
 import uk.co.deloitte.advantage.zone.presentation.converters.ConverterRegistry;
 import uk.co.deloitte.advantage.zone.presentation.resources.ZoneResource;
-import uk.co.deloitte.domain.site.SiteId;
-import uk.co.deloitte.domain.zone.*;
+import uk.co.deloitte.domain.Identity;
+import uk.co.deloitte.domain.zone.Facility;
+import uk.co.deloitte.domain.zone.IZoneRepository;
+import uk.co.deloitte.domain.zone.Zone;
 
-import java.util.Optional;
 import java.util.UUID;
 
 public final class ZoneLambda implements RequestHandler<ZoneIdMessage, ZoneResource> {
@@ -18,9 +19,9 @@ public final class ZoneLambda implements RequestHandler<ZoneIdMessage, ZoneResou
     private final ConverterRegistry converterRegistry = ConverterRegistry.create();
 
     public ZoneLambda() {
-        ZoneId zoneId = ZoneId.valueOf(UUID.fromString("359dfe3f-aaad-461c-87a7-08d9368584f1"));
-        Zone zone = Zone.create(zoneId, SiteId.randomId(), "Poodle Boxing");
-        zone.addFacility(Facility.create(FacilityId.valueOf(UUID.randomUUID())));
+        Identity zoneId = Identity.valueOf(UUID.fromString("359dfe3f-aaad-461c-87a7-08d9368584f1"));
+        Zone zone = Zone.create(zoneId, Identity.unique(), "Poodle Boxing");
+        zone.addFacility(Facility.create(Identity.valueOf(UUID.randomUUID())));
         zoneRepository.create(zone);
     }
 
@@ -42,7 +43,7 @@ public final class ZoneLambda implements RequestHandler<ZoneIdMessage, ZoneResou
             ]
         }
         */
-       Zone zone = zoneRepository.read(ZoneId.valueOf(msg.getId()))
+       Zone zone = zoneRepository.read(Identity.valueOf(msg.getId()))
                 .orElseThrow(() -> new IllegalArgumentException("Error, zone does not exist by id " + msg.getId()));
         /*
          * returns the given zone queried if present, this object gets auto translated to json by aws library.

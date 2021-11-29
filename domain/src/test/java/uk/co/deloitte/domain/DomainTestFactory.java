@@ -1,11 +1,8 @@
 package uk.co.deloitte.domain;
 
 import uk.co.deloitte.domain.site.Site;
-import uk.co.deloitte.domain.site.SiteId;
 import uk.co.deloitte.domain.zone.Facility;
-import uk.co.deloitte.domain.zone.FacilityId;
 import uk.co.deloitte.domain.zone.Zone;
-import uk.co.deloitte.domain.zone.ZoneId;
 
 import java.util.UUID;
 
@@ -22,12 +19,12 @@ public final class DomainTestFactory {
 
     }
 
-    public static OrganisationId createTennisClubOrganisationId() {
-        return OrganisationId.valueOf(TENNIS_CLUB_ORGANIZATION_ID);
+    public static Identity createTennisClubOrganisationId() {
+        return Identity.valueOf(TENNIS_CLUB_ORGANIZATION_ID);
     }
 
-    public static ZoneId createTennisZoneId() {
-        return ZoneId.valueOf(TENNIS_ZONE_ID_AS_UUID);
+    public static Identity createTennisZoneId() {
+        return Identity.valueOf(TENNIS_ZONE_ID_AS_UUID);
     }
 
     public static Zone createBlankTennisZone() {
@@ -40,8 +37,8 @@ public final class DomainTestFactory {
         return zone;
     }
 
-    public static FacilityId createA1TennisFacilityId() {
-        return FacilityId.valueOf(TENNIS_FACILITY_ID_A1_AS_UUID);
+    public static Identity createA1TennisFacilityId() {
+        return Identity.valueOf(TENNIS_FACILITY_ID_A1_AS_UUID);
     }
 
     public static Facility createA1TennisFacility() {
@@ -52,8 +49,8 @@ public final class DomainTestFactory {
         return Organisation.create(createTennisClubOrganisationId());
     }
 
-    public static SiteId createManchesterTennisSiteId() {
-        return SiteId.valueOf(MANCHESTER_TENNIS_CLUB_SITE);
+    public static Identity createManchesterTennisSiteId() {
+        return Identity.valueOf(MANCHESTER_TENNIS_CLUB_SITE);
     }
 
     public static Site createManchesterTennisSite() {

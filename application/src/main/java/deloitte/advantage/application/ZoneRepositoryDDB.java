@@ -2,10 +2,9 @@ package deloitte.advantage.application;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import deloitte.advantage.infrastructure.dynamodb.ZoneTable;
-import uk.co.deloitte.domain.site.SiteId;
+import uk.co.deloitte.domain.Identity;
 import uk.co.deloitte.domain.zone.IZoneRepository;
 import uk.co.deloitte.domain.zone.Zone;
-import uk.co.deloitte.domain.zone.ZoneId;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -21,7 +20,7 @@ public class ZoneRepositoryDDB implements IZoneRepository {
     private final DynamoDBMapper mapper;
 
     @Override
-    public ZoneId create(Zone aggregate) {
+    public Identity create(Zone aggregate) {
         ZoneTable table = convert(aggregate);
         mapper.save(table);
 
@@ -37,18 +36,18 @@ public class ZoneRepositoryDDB implements IZoneRepository {
     }
 
     @Override
-    public void delete(ZoneId identifier) {
+    public void delete(Identity identifier) {
         ZoneTable table = mapper.load(ZoneTable.class, identifier.toString());
         mapper.delete(table);
     }
 
     @Override
-    public Optional<Zone> read(ZoneId identifier) {
+    public Optional<Zone> read(Identity identifier) {
         ZoneTable table = mapper.load(ZoneTable.class, identifier.toString());
         if (table == null) return Optional.empty();
 
-        Zone zone = Zone.create(ZoneId.valueOf(UUID.fromString(table.getId())),
-                SiteId.valueOf(UUID.fromString(table.getSiteId())), table.getName());
+        Zone zone = Zone.create(Identity.valueOf(UUID.fromString(table.getId())),
+                Identity.valueOf(UUID.fromString(table.getSiteId())), table.getName());
 
         return Optional.of(zone);
     }
