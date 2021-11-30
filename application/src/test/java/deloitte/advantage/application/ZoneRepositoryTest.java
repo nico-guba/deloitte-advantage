@@ -16,7 +16,7 @@ class ZoneRepositoryTest {
 
     private static DynamoDBMapper dynamoDBMapper = DynamoDBMapperFactory.createMapper();
 
-    @DualTest
+    @TestImplementations
     void create_returns_expected_aggregate_id(IZoneRepository repo) {
         Identity zoneId = Identity.unique();
 
@@ -25,7 +25,7 @@ class ZoneRepositoryTest {
         assertEquals(zoneId, id);
     }
 
-    @DualTest
+    @TestImplementations
     void delete(IZoneRepository repo) {
         Identity id = makeAggregate(repo);
 
@@ -35,7 +35,7 @@ class ZoneRepositoryTest {
         assertTrue(actual.isEmpty());
     }
 
-    @DualTest
+    @TestImplementations
     void read_saved_aggregate(IZoneRepository repo) {
         Identity id = makeAggregate(repo);
 
@@ -45,7 +45,7 @@ class ZoneRepositoryTest {
     }
 
 
-    @DualTest
+    @TestImplementations
     void update(IZoneRepository repo) {
         Identity id = makeAggregate(repo);
         Zone zone = readAggregate(repo, id).get();

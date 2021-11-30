@@ -14,5 +14,5 @@ import static org.apiguardian.api.API.Status.STABLE;
 @Documented
 @ParameterizedTest
 @MethodSource("implementationProvider")
-public @interface DualTest {
+public @interface TestImplementations {
 }
