@@ -6,20 +6,21 @@ import java.util.UUID;
 
 public abstract class AbstractIdentity<T> {
 
-    protected Optional<T> value;
+    protected T value;
 
     protected  AbstractIdentity(T value) {
-        if(value == null) throw new IllegalArgumentException("Identity must contain a present value.");
-        this.value = Optional.of(value);
+        if(value == null)
+            throw new IllegalArgumentException("Identity must contain a present value.");
+        this.value = value;
     }
 
     public T value() {
-        return value.orElseThrow();
+        return value;
     }
 
     @Override
     public String toString() {
-        return value.orElseThrow().toString();
+        return value.toString();
     }
 
     @Override
