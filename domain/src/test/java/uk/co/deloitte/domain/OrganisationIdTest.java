@@ -2,18 +2,19 @@ package uk.co.deloitte.domain;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 import uk.co.deloitte.test.support.EqualityVerifier;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class IdentityTest implements EqualityVerifier<Identity> {
+class OrganisationIdTest implements EqualityVerifier<OrganisationId> {
 
-    private final Identity actual = DomainTestFactory.createTennisClubOrganisationId();
+    private final OrganisationId actual = DomainTestFactory.createTennisClubOrganisationId();
 
     @Test
     @DisplayName("Create OrganisationId with non-present value.")
     void createWithNullValueTest() {
-        IllegalArgumentException actual = assertThrows(IllegalArgumentException.class, IdentityTest::createInvalidOrganisationId);
+        IllegalArgumentException actual = assertThrows(IllegalArgumentException.class, ()-> OrganisationId.with(null));
         assertEquals("Identity must contain a present value.", actual.getMessage());
     }
 
@@ -38,16 +39,11 @@ class IdentityTest implements EqualityVerifier<Identity> {
     @Test
     @DisplayName("toUUID returns correct UUID value.")
     void toUUIDTest() {
-        assertEquals(DomainTestFactory.TENNIS_CLUB_ORGANIZATION_ID, actual.toUUID());
+        assertEquals(DomainTestFactory.TENNIS_CLUB_ORGANIZATION_ID, actual.value());
     }
 
     @Override
-    public Class<? extends Identity> typeClass() {
+    public Class<? extends OrganisationId> typeClass() {
         return actual.getClass();
     }
-
-    private static void createInvalidOrganisationId() {
-        Identity.valueOf(null);
-    }
-
 }

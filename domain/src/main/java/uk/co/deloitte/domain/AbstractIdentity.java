@@ -4,15 +4,16 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
-public class AbstractIdentity {
+public abstract class AbstractIdentity<T> {
 
-    protected Optional<UUID> value;
+    protected Optional<T> value;
 
-    protected  AbstractIdentity(UUID value) {
+    protected  AbstractIdentity(T value) {
+        if(value == null) throw new IllegalArgumentException("Identity must contain a present value.");
         this.value = Optional.of(value);
     }
 
-    public UUID value() {
+    public T value() {
         return value.orElseThrow();
     }
 
@@ -25,8 +26,8 @@ public class AbstractIdentity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AbstractIdentity that = (AbstractIdentity) o;
-        return value.equals(that.value);
+        AbstractIdentity<?> that = (AbstractIdentity<?>) o;
+        return Objects.equals(value, that.value);
     }
 
     @Override

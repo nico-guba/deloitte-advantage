@@ -1,6 +1,7 @@
 package uk.co.deloitte.domain.site;
 
 import uk.co.deloitte.domain.Identity;
+import uk.co.deloitte.domain.OrganisationId;
 import uk.co.deloitte.domain.ddd.Aggregate;
 
 import java.util.Objects;
@@ -14,14 +15,14 @@ public final class Site implements Aggregate<Identity> {
 
     private final Identity id;
 
-    private final Identity organisationId;
+    private final OrganisationId organisationId;
 
-    private Site(Identity id, Identity organisationId) {
+    private Site(Identity id, OrganisationId organisationId) {
         this.id = id;
         this.organisationId = organisationId;
     }
 
-    public static Site create(Identity id, Identity organisationId) {
+    public static Site create(Identity id, OrganisationId organisationId) {
         if(id == null) {
             throw new IllegalArgumentException("SiteId must contain a present value.");
         }
@@ -53,7 +54,7 @@ public final class Site implements Aggregate<Identity> {
         return id;
     }
 
-    public Identity getOrganisationId() {
+    public OrganisationId getOrganisationId() {
         return organisationId;
     }
 }
