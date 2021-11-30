@@ -17,4 +17,8 @@ public class ZoneId extends AbstractIdentity<UUID> {
     public static ZoneId with(UUID value) {
         return new ZoneId(value);
     }
+
+    public static ZoneId fromString(final String id) {
+       return ZoneId.with(UUID.fromString(id));
+    }
 }

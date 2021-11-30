@@ -12,22 +12,22 @@ import java.util.*;
  * For example a Zone may be for Tennis whereby there are 4 facilities, each with a different field type or activity
  * playing at a given time.
  */
-public final class Zone implements Aggregate<Identity> {
+public final class Zone implements Aggregate<ZoneId> {
 
-    private final Identity id;
+    private final ZoneId id;
 
     private final Identity siteId;
 
     private final Map<Identity, Facility> facilities = new HashMap<>();
     private String name;
 
-    private Zone(Identity id, Identity siteId, String name) {
+    private Zone(ZoneId id, Identity siteId, String name) {
         this.id = id;
         this.siteId = siteId;
         this.name = name;
     }
 
-    public static Zone create(Identity id, Identity siteId, String name) {
+    public static Zone create(ZoneId id, Identity siteId, String name) {
         if(id == null) {
             throw new IllegalArgumentException("Zone Identity must contain a present value.");
         }
@@ -81,7 +81,7 @@ public final class Zone implements Aggregate<Identity> {
     }
 
     @Override
-    public Identity id() {
+    public ZoneId id() {
         return id;
     }
 

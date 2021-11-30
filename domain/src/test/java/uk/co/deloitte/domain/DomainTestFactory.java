@@ -5,6 +5,7 @@ import uk.co.deloitte.domain.org.OrganisationId;
 import uk.co.deloitte.domain.site.Site;
 import uk.co.deloitte.domain.zone.Facility;
 import uk.co.deloitte.domain.zone.Zone;
+import uk.co.deloitte.domain.zone.ZoneId;
 
 import java.util.UUID;
 
@@ -25,8 +26,8 @@ public final class DomainTestFactory {
         return OrganisationId.with(TENNIS_CLUB_ORGANIZATION_ID);
     }
 
-    public static Identity createTennisZoneId() {
-        return Identity.valueOf(TENNIS_ZONE_ID_AS_UUID);
+    public static ZoneId createTennisZoneId() {
+        return ZoneId.with(TENNIS_ZONE_ID_AS_UUID);
     }
 
     public static Zone createBlankTennisZone() {

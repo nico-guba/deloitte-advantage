@@ -1,14 +1,13 @@
 package deloitte.advantage.application;
 
-
 import uk.co.deloitte.domain.Identity;
 import uk.co.deloitte.domain.zone.IZoneRepository;
 import uk.co.deloitte.domain.zone.Zone;
+import uk.co.deloitte.domain.zone.ZoneId;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
 
 /**
  * This is just a fake inmemory repository atm, it doesn't mimic any behavior from http/rest or database errors
@@ -16,25 +15,25 @@ import java.util.Set;
  */
 public final class InMemoryZoneRepository implements IZoneRepository {
 
-    private final Map<Identity, Zone> aggregates = new HashMap<>();
+    private final Map<ZoneId, Zone> aggregates = new HashMap<>();
 
     public static InMemoryZoneRepository create() {
         return new InMemoryZoneRepository();
     }
 
     @Override
-    public Identity create(Zone aggregate) {
+    public ZoneId create(Zone aggregate) {
         aggregates.put(aggregate.id(), aggregate);
         return aggregate.id();
     }
 
     @Override
-    public void delete(Identity id) {
+    public void delete(ZoneId id) {
         aggregates.remove(id);
     }
 
     @Override
-    public Optional<Zone> read(Identity id) {
+    public Optional<Zone> read(ZoneId id) {
         return Optional.ofNullable(aggregates.get(id));
     }
 
