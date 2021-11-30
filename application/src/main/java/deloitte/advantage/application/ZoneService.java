@@ -39,15 +39,13 @@ public final class ZoneService implements ApplicationService {
      */
     public Organisation findOrganisationFromZone(Identity zoneId) {
         Zone zone = zoneRepository.read(zoneId)
-                .orElseThrow(() -> new IllegalArgumentException(String.format("Zone not present for zone id=%s", zoneId)));
+                .orElseThrow(() -> new IllegalArgumentException("Zone not present for zone id=" + zoneId));
 
         Site site = siteRepository.read(zone.getSiteId())
-                .orElseThrow(() -> new IllegalArgumentException(String.format("Site not present for site id=%s", zone.getSiteId())));
+                .orElseThrow(() -> new IllegalArgumentException("Site not present for site id=" + zone.getSiteId()));
 
-        Organisation organisation = organisationRepository.read(site.getOrganisationId())
-                .orElseThrow(() -> new IllegalArgumentException(String.format("Organisation not present for Organisation id=%s", site.getOrganisationId())));
-
-        return organisation;
+        return organisationRepository.read(site.getOrganisationId())
+                .orElseThrow(() -> new IllegalArgumentException("Organisation not present for Organisation id=" + site.getOrganisationId()));
     }
 
 }
