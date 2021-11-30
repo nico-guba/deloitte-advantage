@@ -1,10 +1,9 @@
 package uk.co.deloitte.domain.org;
 
 import uk.co.deloitte.domain.DomainTestFactory;
-import uk.co.deloitte.domain.IdentityFixture;
-import uk.co.deloitte.domain.org.OrganisationId;
+import uk.co.deloitte.domain.ddd.support.IdentityVerifier;
 
-class OrganisationIdTest implements IdentityFixture<OrganisationId> {
+class OrganisationIdTest implements IdentityVerifier<OrganisationId> {
 
     private final OrganisationId actual = DomainTestFactory.createTennisClubOrganisationId();
 

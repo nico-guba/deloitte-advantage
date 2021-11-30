@@ -1,6 +1,6 @@
 package uk.co.deloitte.domain.zone;
 
-import uk.co.deloitte.domain.AbstractIdentity;
+import uk.co.deloitte.domain.ddd.AbstractIdentity;
 
 import java.util.UUID;
 

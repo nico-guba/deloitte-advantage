@@ -1,8 +1,6 @@
-package uk.co.deloitte.domain;
+package uk.co.deloitte.domain.ddd;
 
 import java.util.Objects;
-import java.util.Optional;
-import java.util.UUID;
 
 public abstract class AbstractIdentity<T> {
 
