@@ -9,6 +9,7 @@ import uk.co.deloitte.domain.Identity;
 import uk.co.deloitte.domain.zone.Facility;
 import uk.co.deloitte.domain.zone.IZoneRepository;
 import uk.co.deloitte.domain.zone.Zone;
+import uk.co.deloitte.domain.zone.ZoneId;
 
 import java.util.UUID;
 
@@ -19,7 +20,7 @@ public final class ZoneLambda implements RequestHandler<ZoneIdMessage, ZoneResou
     private final ConverterRegistry converterRegistry = ConverterRegistry.create();
 
     public ZoneLambda() {
-        Identity zoneId = Identity.valueOf(UUID.fromString("359dfe3f-aaad-461c-87a7-08d9368584f1"));
+        ZoneId zoneId = ZoneId.fromString("359dfe3f-aaad-461c-87a7-08d9368584f1");
         Zone zone = Zone.create(zoneId, Identity.unique(), "Poodle Boxing");
         zone.addFacility(Facility.create(Identity.valueOf(UUID.randomUUID())));
         zoneRepository.create(zone);
@@ -43,7 +44,7 @@ public final class ZoneLambda implements RequestHandler<ZoneIdMessage, ZoneResou
             ]
         }
         */
-       Zone zone = zoneRepository.read(Identity.valueOf(msg.getId()))
+       Zone zone = zoneRepository.read(ZoneId.with(msg.getId()))
                 .orElseThrow(() -> new IllegalArgumentException("Error, zone does not exist by id " + msg.getId()));
         /*
          * returns the given zone queried if present, this object gets auto translated to json by aws library.

@@ -5,6 +5,7 @@ import uk.co.deloitte.domain.ddd.ValueObject;
 import java.util.Objects;
 import java.util.UUID;
 
+@Deprecated
 public final class Identity implements ValueObject {
 
     private final UUID value;

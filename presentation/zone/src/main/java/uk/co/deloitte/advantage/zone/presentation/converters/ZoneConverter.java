@@ -25,7 +25,7 @@ public final class ZoneConverter extends CustomConverter<Zone, ZoneResource> {
     @Override
     public ZoneResource convert(Zone zone, Type<? extends ZoneResource> type, MappingContext mappingContext) {
         return zone != null ? ZoneResource.builder()
-                .withId(zone.id().toUUID())
+                .withId(zone.id().value())
                 .withFacilities(convertFacilities(zone))
                 .build()
                 : null;
