@@ -1,11 +1,8 @@
-package uk.co.deloitte.domain;
+package uk.co.deloitte.domain.org;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
-import uk.co.deloitte.test.support.EqualityVerifier;
-
-import static org.junit.jupiter.api.Assertions.*;
+import uk.co.deloitte.domain.DomainTestFactory;
+import uk.co.deloitte.domain.IdentityFixture;
+import uk.co.deloitte.domain.org.OrganisationId;
 
 class OrganisationIdTest implements IdentityFixture<OrganisationId> {
 

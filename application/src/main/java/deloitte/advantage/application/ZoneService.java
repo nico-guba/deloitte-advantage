@@ -1,16 +1,13 @@
 package deloitte.advantage.application;
 
-import uk.co.deloitte.domain.IOrganisationRepository;
-import uk.co.deloitte.domain.Organisation;
+import uk.co.deloitte.domain.org.IOrganisationRepository;
+import uk.co.deloitte.domain.org.Organisation;
 import uk.co.deloitte.domain.Identity;
 import uk.co.deloitte.domain.ddd.ApplicationService;
 import uk.co.deloitte.domain.site.ISiteRepository;
 import uk.co.deloitte.domain.site.Site;
 import uk.co.deloitte.domain.zone.IZoneRepository;
 import uk.co.deloitte.domain.zone.Zone;
-
-import java.util.Optional;
-
 
 /**
  * WARNING! THIS NEEDS TESTS, IT IS JUST AN EXAMPLE TO SEE IF DOMAIN MODEL MAKES SENSE

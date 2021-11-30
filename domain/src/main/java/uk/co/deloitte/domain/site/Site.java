@@ -1,14 +1,15 @@
 package uk.co.deloitte.domain.site;
 
 import uk.co.deloitte.domain.Identity;
-import uk.co.deloitte.domain.OrganisationId;
+import uk.co.deloitte.domain.org.OrganisationId;
 import uk.co.deloitte.domain.ddd.Aggregate;
+import uk.co.deloitte.domain.org.Organisation;
 
 import java.util.Objects;
 import java.util.StringJoiner;
 
 /**
- * An {@link uk.co.deloitte.domain.Organisation} may have one or more sites that they own and conduct business. This class
+ * An {@link Organisation} may have one or more sites that they own and conduct business. This class
  * represents a singular site.
  */
 public final class Site implements Aggregate<Identity> {

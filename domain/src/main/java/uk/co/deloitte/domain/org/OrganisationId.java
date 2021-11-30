@@ -1,4 +1,6 @@
-package uk.co.deloitte.domain;
+package uk.co.deloitte.domain.org;
+
+import uk.co.deloitte.domain.AbstractIdentity;
 
 import java.util.UUID;
 

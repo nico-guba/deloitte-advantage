@@ -1,9 +1,8 @@
 package deloitte.advantage.application;
 
-import uk.co.deloitte.domain.Organisation;
-import uk.co.deloitte.domain.Identity;
-import uk.co.deloitte.domain.IOrganisationRepository;
-import uk.co.deloitte.domain.OrganisationId;
+import uk.co.deloitte.domain.org.Organisation;
+import uk.co.deloitte.domain.org.IOrganisationRepository;
+import uk.co.deloitte.domain.org.OrganisationId;
 
 import java.util.HashMap;
 import java.util.Map;

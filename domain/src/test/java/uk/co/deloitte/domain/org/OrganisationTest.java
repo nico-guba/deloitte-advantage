@@ -1,7 +1,8 @@
-package uk.co.deloitte.domain;
+package uk.co.deloitte.domain.org;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import uk.co.deloitte.domain.DomainTestFactory;
 import uk.co.deloitte.domain.ddd.support.EntityEqualityVerifier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,7 +15,7 @@ class OrganisationTest implements EntityEqualityVerifier<Organisation> {
     @Test
     @DisplayName("Create Facility with non-present value.")
     void createWithNullValueTest() {
-        IllegalArgumentException actual = assertThrows(IllegalArgumentException.class, OrganisationTest::createInvalidOrganisation);
+        IllegalArgumentException actual = assertThrows(IllegalArgumentException.class, () -> Organisation.create(null));
         assertEquals("OrganisationId must contain a present value.", actual.getMessage());
     }
 
@@ -33,10 +34,6 @@ class OrganisationTest implements EntityEqualityVerifier<Organisation> {
     @Override
     public Class<? extends Organisation> typeClass() {
         return actual.getClass();
-    }
-
-    private static void createInvalidOrganisation() {
-        Organisation.create(null);
     }
 
 }
