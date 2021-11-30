@@ -7,43 +7,17 @@ import uk.co.deloitte.test.support.EqualityVerifier;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class OrganisationIdTest implements EqualityVerifier<OrganisationId> {
+class OrganisationIdTest implements IdentityFixture<OrganisationId> {
 
     private final OrganisationId actual = DomainTestFactory.createTennisClubOrganisationId();
 
-    @Test
-    @DisplayName("Create OrganisationId with non-present value.")
-    void createWithNullValueTest() {
-        IllegalArgumentException actual = assertThrows(IllegalArgumentException.class, ()-> OrganisationId.with(null));
-        assertEquals("Identity must contain a present value.", actual.getMessage());
-    }
-
-    @Test
-    @DisplayName("Create Identity with present value.")
-    void createWithValidValueTest() {
-        assertEquals(DomainTestFactory.createTennisClubOrganisationId(), actual);
-    }
-
-    @Test
-    @DisplayName("Create Identity with random UUID.")
-    void createWithRandomUUIDTest() {
-        assertNotNull(Identity.unique().toUUID());
-    }
-
-    @Test
-    @DisplayName("String representation of class equals as expected.")
-    void toStringTest() {
-        assertEquals("d50faed6-9982-43d2-9dff-9bb41859ddcf", actual.toString());
-    }
-
-    @Test
-    @DisplayName("toUUID returns correct UUID value.")
-    void toUUIDTest() {
-        assertEquals(DomainTestFactory.TENNIS_CLUB_ORGANIZATION_ID, actual.value());
+    @Override
+    public OrganisationId invalidInstance() {
+        return OrganisationId.with(null);
     }
 
     @Override
-    public Class<? extends OrganisationId> typeClass() {
-        return actual.getClass();
+    public OrganisationId validInstance() {
+        return OrganisationId.unique();
     }
 }

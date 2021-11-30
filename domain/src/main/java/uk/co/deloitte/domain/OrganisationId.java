@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class OrganisationId extends AbstractIdentity<UUID> {
 
-    public OrganisationId(UUID id) {
+    private OrganisationId(UUID id) {
         super(id);
     }
 

@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public abstract class AbstractIdentity<T> {
 
-    protected T value;
+    private final T value;
 
     protected  AbstractIdentity(T value) {
         if(value == null)
