@@ -1,9 +1,10 @@
 package uk.co.deloitte.domain;
 
+import uk.co.deloitte.domain.facility.Facility;
 import uk.co.deloitte.domain.org.Organisation;
 import uk.co.deloitte.domain.org.OrganisationId;
 import uk.co.deloitte.domain.site.Site;
-import uk.co.deloitte.domain.facility.Facility;
+import uk.co.deloitte.domain.site.SiteId;
 import uk.co.deloitte.domain.zone.Zone;
 import uk.co.deloitte.domain.zone.ZoneId;
 
@@ -52,8 +53,8 @@ public final class DomainTestFactory {
         return Organisation.create(createTennisClubOrganisationId());
     }
 
-    public static Identity createManchesterTennisSiteId() {
-        return Identity.valueOf(MANCHESTER_TENNIS_CLUB_SITE);
+    public static SiteId createManchesterTennisSiteId() {
+        return SiteId.with(MANCHESTER_TENNIS_CLUB_SITE);
     }
 
     public static Site createManchesterTennisSite() {

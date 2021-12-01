@@ -2,7 +2,7 @@ package deloitte.advantage.application;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import deloitte.advantage.infrastructure.dynamodb.DynamoDBMapperFactory;
-import uk.co.deloitte.domain.Identity;
+import uk.co.deloitte.domain.site.SiteId;
 import uk.co.deloitte.domain.zone.IZoneRepository;
 import uk.co.deloitte.domain.zone.Zone;
 import uk.co.deloitte.domain.zone.ZoneId;
@@ -73,7 +73,7 @@ class ZoneRepositoryTest {
     }
 
     private ZoneId makeAggregate(IZoneRepository repo, ZoneId zoneId) {
-        Zone aggregate = Zone.create(zoneId, Identity.unique(), "Beach Volleyball");
+        Zone aggregate = Zone.create(zoneId, SiteId.unique(), "Beach Volleyball");
         repo.create(aggregate);
         return aggregate.id();
     }
