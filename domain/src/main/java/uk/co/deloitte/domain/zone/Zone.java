@@ -1,8 +1,8 @@
 package uk.co.deloitte.domain.zone;
 
-import uk.co.deloitte.domain.Identity;
 import uk.co.deloitte.domain.ddd.Aggregate;
 import uk.co.deloitte.domain.facility.Facility;
+import uk.co.deloitte.domain.facility.FacilityId;
 import uk.co.deloitte.domain.site.SiteId;
 
 import java.util.*;
@@ -20,7 +20,7 @@ public final class Zone implements Aggregate<ZoneId> {
 
     private final SiteId siteId;
 
-    private final Map<Identity, Facility> facilities = new HashMap<>();
+    private final Map<FacilityId, Facility> facilities = new HashMap<>();
     private String name;
 
     private Zone(ZoneId id, SiteId siteId, String name) {
@@ -58,7 +58,7 @@ public final class Zone implements Aggregate<ZoneId> {
                 .toString();
     }
 
-    public Facility getFacility(Identity id) {
+    public Facility getFacility(FacilityId id) {
         return facilities.get(id);
     }
 
@@ -66,7 +66,7 @@ public final class Zone implements Aggregate<ZoneId> {
         facilities.put(facility.id(), facility);
     }
 
-    public void removeFacility(Identity id) {
+    public void removeFacility(FacilityId id) {
         facilities.remove(id);
     }
 
@@ -74,7 +74,7 @@ public final class Zone implements Aggregate<ZoneId> {
         return facilities.size();
     }
 
-    public Map<Identity, Facility> getFacilities() {
+    public Map<FacilityId, Facility> getFacilities() {
         return Collections.unmodifiableMap(facilities);
     }
 

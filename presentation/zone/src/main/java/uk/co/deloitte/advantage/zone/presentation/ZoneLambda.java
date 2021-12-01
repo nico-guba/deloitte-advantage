@@ -5,14 +5,12 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import deloitte.advantage.application.InMemoryZoneRepository;
 import uk.co.deloitte.advantage.zone.presentation.converters.ConverterRegistry;
 import uk.co.deloitte.advantage.zone.presentation.resources.ZoneResource;
-import uk.co.deloitte.domain.Identity;
 import uk.co.deloitte.domain.facility.Facility;
+import uk.co.deloitte.domain.facility.FacilityId;
 import uk.co.deloitte.domain.site.SiteId;
 import uk.co.deloitte.domain.zone.IZoneRepository;
 import uk.co.deloitte.domain.zone.Zone;
 import uk.co.deloitte.domain.zone.ZoneId;
-
-import java.util.UUID;
 
 public final class ZoneLambda implements RequestHandler<ZoneIdMessage, ZoneResource> {
 
@@ -23,7 +21,7 @@ public final class ZoneLambda implements RequestHandler<ZoneIdMessage, ZoneResou
     public ZoneLambda() {
         ZoneId zoneId = ZoneId.fromString("359dfe3f-aaad-461c-87a7-08d9368584f1");
         Zone zone = Zone.create(zoneId, SiteId.unique(), "Poodle Boxing");
-        zone.addFacility(Facility.create(Identity.valueOf(UUID.randomUUID())));
+        zone.addFacility(Facility.create(FacilityId.unique()));
         zoneRepository.create(zone);
     }
 

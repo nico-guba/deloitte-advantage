@@ -1,6 +1,7 @@
 package uk.co.deloitte.domain;
 
 import uk.co.deloitte.domain.facility.Facility;
+import uk.co.deloitte.domain.facility.FacilityId;
 import uk.co.deloitte.domain.org.Organisation;
 import uk.co.deloitte.domain.org.OrganisationId;
 import uk.co.deloitte.domain.site.Site;
@@ -41,8 +42,8 @@ public final class DomainTestFactory {
         return zone;
     }
 
-    public static Identity createA1TennisFacilityId() {
-        return Identity.valueOf(TENNIS_FACILITY_ID_A1_AS_UUID);
+    public static FacilityId createA1TennisFacilityId() {
+        return FacilityId.with(TENNIS_FACILITY_ID_A1_AS_UUID);
     }
 
     public static Facility createA1TennisFacility() {
