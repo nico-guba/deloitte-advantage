@@ -2,7 +2,7 @@ package uk.co.deloitte.domain.ddd.support;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import uk.co.deloitte.domain.ddd.AbstractIdentity;
+import uk.co.deloitte.domain.ddd.Identity;
 import uk.co.deloitte.test.support.EqualityVerifier;
 
 import java.util.HashSet;
@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public interface IdentityVerifier<I extends AbstractIdentity<?>> extends EqualityVerifier<I> {
+public interface IdentityVerifier<I extends Identity<?>> extends EqualityVerifier<I> {
 
     /**
      * supply the implementation attempting to initialize the Identity with a null value

@@ -1,10 +1,10 @@
 package uk.co.deloitte.domain.org;
 
-import uk.co.deloitte.domain.ddd.AbstractIdentity;
+import uk.co.deloitte.domain.ddd.Identity;
 
 import java.util.UUID;
 
-public class OrganisationId extends AbstractIdentity<UUID> {
+public class OrganisationId extends Identity<UUID> {
 
     private OrganisationId(UUID id) {
         super(id);

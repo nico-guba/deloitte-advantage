@@ -1,10 +1,10 @@
 package uk.co.deloitte.domain.facility;
 
-import uk.co.deloitte.domain.ddd.AbstractIdentity;
+import uk.co.deloitte.domain.ddd.Identity;
 
 import java.util.UUID;
 
-public class FacilityId extends AbstractIdentity<UUID> {
+public class FacilityId extends Identity<UUID> {
     private FacilityId(final UUID value) {
         super(value);
     }

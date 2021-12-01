@@ -2,11 +2,11 @@ package uk.co.deloitte.domain.ddd;
 
 import java.util.Objects;
 
-public abstract class AbstractIdentity<T> {
+public abstract class Identity<T> {
 
     private final T value;
 
-    protected  AbstractIdentity(T value) {
+    protected Identity(T value) {
         if(value == null)
             throw new IllegalArgumentException("Identity must contain a present value.");
         this.value = value;
@@ -25,7 +25,7 @@ public abstract class AbstractIdentity<T> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AbstractIdentity<?> that = (AbstractIdentity<?>) o;
+        Identity<?> that = (Identity<?>) o;
         return Objects.equals(value, that.value);
     }
 

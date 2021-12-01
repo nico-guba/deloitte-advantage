@@ -1,10 +1,10 @@
 package uk.co.deloitte.domain.zone;
 
-import uk.co.deloitte.domain.ddd.AbstractIdentity;
+import uk.co.deloitte.domain.ddd.Identity;
 
 import java.util.UUID;
 
-public class ZoneId extends AbstractIdentity<UUID> {
+public class ZoneId extends Identity<UUID> {
 
     private ZoneId(UUID value) {
         super(value);

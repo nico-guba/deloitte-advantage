@@ -1,10 +1,10 @@
 package uk.co.deloitte.domain.site;
 
-import uk.co.deloitte.domain.ddd.AbstractIdentity;
+import uk.co.deloitte.domain.ddd.Identity;
 
 import java.util.UUID;
 
-public class SiteId extends AbstractIdentity<UUID> {
+public class SiteId extends Identity<UUID> {
 
     private SiteId(final UUID value) {
         super(value);
