@@ -1,20 +1,21 @@
 package deloitte.advantage.infrastructure.dynamodb;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
+
+import java.util.UUID;
 
 @DynamoDBTable(tableName = "Zone")
 public class ZoneTable {
 
     @DynamoDBHashKey(attributeName = "Id")
-    private String id;
+    @DynamoDBTypeConverted(converter = UUIDTypeConverter.class)
+    private UUID id;
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -39,4 +40,18 @@ public class ZoneTable {
     public void setName(String name) {
         this.name = name;
     }
+
+   public static class UUIDTypeConverter implements DynamoDBTypeConverter<String, UUID> {
+
+        @Override
+        public String convert(final UUID object) {
+            return object.toString();
+        }
+
+        @Override
+        public UUID unconvert(final String object) {
+            return UUID.fromString(object);
+        }
+    }
 }
+
