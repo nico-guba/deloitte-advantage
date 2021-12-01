@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import uk.co.deloitte.domain.DomainTestFactory;
 import uk.co.deloitte.domain.ddd.support.EntityEqualityVerifier;
+import uk.co.deloitte.domain.facility.Facility;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -5,10 +5,8 @@ import ma.glasnost.orika.converter.ConverterFactory;
 import ma.glasnost.orika.impl.DefaultMapperFactory;
 import uk.co.deloitte.advantage.zone.presentation.resources.FacilityResource;
 import uk.co.deloitte.advantage.zone.presentation.resources.ZoneResource;
-import uk.co.deloitte.domain.zone.Facility;
+import uk.co.deloitte.domain.facility.Facility;
 import uk.co.deloitte.domain.zone.Zone;
-
-import java.util.Optional;
 
 /**
  * Currently using the <b>orika library</b> for converting domain objects to presentation objects.

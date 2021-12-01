@@ -1,4 +1,4 @@
-package uk.co.deloitte.domain.zone;
+package uk.co.deloitte.domain.facility;
 
 import uk.co.deloitte.domain.Identity;
 import uk.co.deloitte.domain.ddd.Entity;

@@ -6,7 +6,7 @@ import deloitte.advantage.application.InMemoryZoneRepository;
 import uk.co.deloitte.advantage.zone.presentation.converters.ConverterRegistry;
 import uk.co.deloitte.advantage.zone.presentation.resources.ZoneResource;
 import uk.co.deloitte.domain.Identity;
-import uk.co.deloitte.domain.zone.Facility;
+import uk.co.deloitte.domain.facility.Facility;
 import uk.co.deloitte.domain.zone.IZoneRepository;
 import uk.co.deloitte.domain.zone.Zone;
 import uk.co.deloitte.domain.zone.ZoneId;

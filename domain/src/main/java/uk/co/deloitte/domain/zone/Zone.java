@@ -2,6 +2,7 @@ package uk.co.deloitte.domain.zone;
 
 import uk.co.deloitte.domain.Identity;
 import uk.co.deloitte.domain.ddd.Aggregate;
+import uk.co.deloitte.domain.facility.Facility;
 
 import java.util.*;
 
