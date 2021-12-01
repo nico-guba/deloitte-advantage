@@ -14,6 +14,6 @@ public final class FacilityConverter extends CustomConverter<Facility, FacilityR
 
     @Override
     public FacilityResource convert(Facility facility, Type<? extends FacilityResource> type, MappingContext mappingContext) {
-        return facility != null ? FacilityResource.builder().withId(facility.id().toUUID()).build() : null;
+        return facility != null ? FacilityResource.builder().withId(facility.id().value()).build() : null;
     }
 }
