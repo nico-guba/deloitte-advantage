@@ -7,12 +7,12 @@ import uk.co.deloitte.domain.zone.IZoneRepository;
 import uk.co.deloitte.domain.zone.Zone;
 import uk.co.deloitte.domain.zone.ZoneId;
 
-import java.util.Optional;
+import java.util.NoSuchElementException;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ZoneRepositoryTest {
 
@@ -32,9 +32,8 @@ class ZoneRepositoryTest {
 
         execute(id, repo, (zoneId) -> {
             repo.delete(zoneId);
-
-            Optional<Zone> actual = readAggregate(repo, id);
-            assertTrue(actual.isEmpty());
+            Exception e = assertThrows(NoSuchElementException.class, () -> readAggregate(repo, id));
+            assertEquals("No value present", e.getMessage());
         });
     }
 
@@ -42,8 +41,8 @@ class ZoneRepositoryTest {
     void read_saved_aggregate(IZoneRepository repo) {
         ZoneId id = createAndSave(repo);
         execute(id, repo, (zoneId) -> {
-            Optional<Zone> actual = readAggregate(repo, zoneId);
-            assertEquals(zoneId, actual.get().id());
+            Zone actual = readAggregate(repo, zoneId);
+            assertEquals(zoneId, actual.id());
         });
     }
 
@@ -51,19 +50,19 @@ class ZoneRepositoryTest {
     void update(IZoneRepository repo) {
         ZoneId id = createAndSave(repo);
         execute(id, repo, (zoneId) -> {
-            Zone zone = readAggregate(repo, zoneId).get();
+            Zone zone = readAggregate(repo, zoneId);
             assertEquals("Beach Volleyball", zone.getName());
 
             zone.setName("Women's Beach Volleyball");
             repo.update(zone);
 
-            Zone actual = readAggregate(repo, zoneId).get();
+            Zone actual = readAggregate(repo, zoneId);
             assertEquals("Women's Beach Volleyball", actual.getName());
         });
     }
 
-    private Optional<Zone> readAggregate(IZoneRepository repo, ZoneId id) {
-        return repo.read(id);
+    private Zone readAggregate(IZoneRepository repo, ZoneId id) {
+        return repo.read(id).orElseThrow();
     }
 
     /**
@@ -85,7 +84,7 @@ class ZoneRepositoryTest {
         return createAndSave(repo, ZoneId.unique());
     }
 
-    private void execute (ZoneId id, IZoneRepository repo, Consumer<ZoneId> consumer){
+    private void execute(ZoneId id, IZoneRepository repo, Consumer<ZoneId> consumer) {
         try {
             consumer.accept(id);
         } finally {
