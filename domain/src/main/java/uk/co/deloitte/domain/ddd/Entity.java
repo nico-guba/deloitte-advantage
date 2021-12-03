@@ -1,6 +1,6 @@
 package uk.co.deloitte.domain.ddd;
 
-public interface Entity<T> {
+public interface Entity<K extends Identity<?>> {
 
-    T id();
+    K id();
 }
