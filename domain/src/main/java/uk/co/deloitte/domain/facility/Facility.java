@@ -1,6 +1,6 @@
 package uk.co.deloitte.domain.facility;
 
-import uk.co.deloitte.domain.ddd.Entity;
+import uk.co.deloitte.domain.ddd.Aggregate;
 
 import java.util.Objects;
 import java.util.StringJoiner;
@@ -13,7 +13,7 @@ import java.util.StringJoiner;
  * A Zone can be called Gym however the Gym may have 6 facilities, all running different equipment or activities such as
  * Boxing.
  */
-public final class Facility implements Entity<FacilityId> {
+public final class Facility implements Aggregate<FacilityId> {
 
     private final FacilityId id;
 
