@@ -71,7 +71,7 @@ class ZoneRepositoryTest {
      * @return the implementations to test
      */
     static Stream<IZoneRepository> implementationProvider() {
-        return Stream.of(new InMemoryZoneRepository(), new ZoneRepositoryDDB(dynamoDBMapper));
+        return Stream.of(new ZoneRepositoryDouble(), new ZoneRepositoryDDB(dynamoDBMapper));
     }
 
     private ZoneId createAndSave(IZoneRepository repo, ZoneId zoneId) {
