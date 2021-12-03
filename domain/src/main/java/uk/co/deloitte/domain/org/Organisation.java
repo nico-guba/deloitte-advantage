@@ -47,4 +47,5 @@ public final class Organisation implements Aggregate<OrganisationId> {
     public OrganisationId id() {
         return id;
     }
+
 }

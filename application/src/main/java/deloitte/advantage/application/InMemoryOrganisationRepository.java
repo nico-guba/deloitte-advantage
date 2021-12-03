@@ -1,39 +1,12 @@
 package deloitte.advantage.application;
 
-import uk.co.deloitte.domain.org.Organisation;
 import uk.co.deloitte.domain.org.IOrganisationRepository;
+import uk.co.deloitte.domain.org.Organisation;
 import uk.co.deloitte.domain.org.OrganisationId;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-
-public final class InMemoryOrganisationRepository implements IOrganisationRepository {
-
-    private final Map<OrganisationId, Organisation> aggregates = new HashMap<>();
+public final class InMemoryOrganisationRepository extends InMemoryRepository<OrganisationId, Organisation> implements IOrganisationRepository {
 
     public static InMemoryZoneRepository create() {
         return new InMemoryZoneRepository();
-    }
-
-    @Override
-    public OrganisationId create(Organisation aggregate) {
-        aggregates.put(aggregate.id(), aggregate);
-        return aggregate.id();
-    }
-
-    @Override
-    public void delete(OrganisationId id) {
-        aggregates.remove(id);
-    }
-
-    @Override
-    public Optional<Organisation> read(OrganisationId id) {
-        return Optional.ofNullable(aggregates.get(id));
-    }
-
-    @Override
-    public void update(Organisation aggregate) {
-        aggregates.put(aggregate.id(), aggregate);
     }
 }
