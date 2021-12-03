@@ -6,7 +6,7 @@ import uk.co.deloitte.domain.site.SiteId;
 
 public final class InMemorySiteRepository extends InMemoryRepository<SiteId, Site> implements ISiteRepository {
 
-    public static InMemoryZoneRepository create() {
+    public static InMemoryZoneRepository empty() {
         return new InMemoryZoneRepository();
     }
 }

@@ -6,7 +6,7 @@ import uk.co.deloitte.domain.org.OrganisationId;
 
 public final class InMemoryOrganisationRepository extends InMemoryRepository<OrganisationId, Organisation> implements IOrganisationRepository {
 
-    public static InMemoryZoneRepository create() {
+    public static InMemoryZoneRepository empty() {
         return new InMemoryZoneRepository();
     }
 }

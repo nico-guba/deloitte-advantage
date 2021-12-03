@@ -10,7 +10,7 @@ import uk.co.deloitte.domain.zone.ZoneId;
  */
 public final class InMemoryZoneRepository extends InMemoryRepository<ZoneId, Zone> implements IZoneRepository {
 
-    public static InMemoryZoneRepository create() {
+    public static InMemoryZoneRepository empty() {
         return new InMemoryZoneRepository();
     }
 
