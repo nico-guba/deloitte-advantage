@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="Eclipse" />
+    <option name="BUILD_PROCESS_HEAP_SIZE" value="1024" />
     <annotationProcessing>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -21,7 +23,6 @@
     <bytecodeTargetLevel>
       <module name="advantage" target="11" />
       <module name="application" target="11" />
-      <module name="deloitte-advantage" target="11" />
       <module name="domain" target="11" />
       <module name="example" target="11" />
       <module name="infrastructure" target="11" />
@@ -31,13 +32,11 @@
       <module name="test-support" target="11" />
       <module name="test-support-lambda" target="11" />
       <module name="zone" target="11" />
-      <module name="zone-lambda" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="advantage" options="-parameters" />
-      <module name="deloitte-advantage" options="-parameters" />
     </option>
   </component>
 </project>
