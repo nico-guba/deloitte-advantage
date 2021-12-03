@@ -64,6 +64,4 @@ public interface IdentityVerifier<I extends Identity<?>> extends EqualityVerifie
         }
         assertEquals(100, created.size());
     }
-
-
 }
