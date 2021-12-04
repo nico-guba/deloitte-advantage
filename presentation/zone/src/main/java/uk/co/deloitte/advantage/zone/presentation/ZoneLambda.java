@@ -2,7 +2,7 @@ package uk.co.deloitte.advantage.zone.presentation;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import deloitte.advantage.application.ZoneRepositoryDouble;
+import deloitte.advantage.application.zone.ZoneRepositoryInMemory;
 import uk.co.deloitte.advantage.zone.presentation.converters.ConverterRegistry;
 import uk.co.deloitte.advantage.zone.presentation.resources.ZoneResource;
 import uk.co.deloitte.domain.facility.Facility;
@@ -14,7 +14,7 @@ import uk.co.deloitte.domain.zone.ZoneId;
 
 public final class ZoneLambda implements RequestHandler<ZoneIdMessage, ZoneResource> {
 
-    private final IZoneRepository zoneRepository = new ZoneRepositoryDouble();
+    private final IZoneRepository zoneRepository = new ZoneRepositoryInMemory();
 
     private final ConverterRegistry converterRegistry = ConverterRegistry.create();
 

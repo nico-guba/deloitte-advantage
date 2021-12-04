@@ -1,4 +1,4 @@
-package deloitte.advantage.application;
+package deloitte.advantage.application.zone;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
@@ -14,6 +14,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * DynamoDB backed repository for Zone Aggregates
+ */
 public class ZoneRepositoryDDB implements IZoneRepository {
 
     public ZoneRepositoryDDB(DynamoDBMapper mapper) {

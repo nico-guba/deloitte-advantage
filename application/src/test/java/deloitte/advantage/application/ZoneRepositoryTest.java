@@ -1,6 +1,8 @@
 package deloitte.advantage.application;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import deloitte.advantage.application.zone.ZoneRepositoryDDB;
+import deloitte.advantage.application.zone.ZoneRepositoryInMemory;
 import deloitte.advantage.infrastructure.dynamodb.DynamoDBMapperFactory;
 import uk.co.deloitte.domain.site.SiteId;
 import uk.co.deloitte.domain.zone.IZoneRepository;
@@ -71,7 +73,7 @@ class ZoneRepositoryTest {
      * @return the implementations to test
      */
     static Stream<IZoneRepository> implementationProvider() {
-        return Stream.of(new ZoneRepositoryDouble(), new ZoneRepositoryDDB(dynamoDBMapper));
+        return Stream.of(new ZoneRepositoryInMemory(), new ZoneRepositoryDDB(dynamoDBMapper));
     }
 
     private ZoneId createAndSave(IZoneRepository repo, ZoneId zoneId) {

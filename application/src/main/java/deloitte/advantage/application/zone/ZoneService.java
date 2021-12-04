@@ -1,4 +1,4 @@
-package deloitte.advantage.application;
+package deloitte.advantage.application.zone;
 
 import uk.co.deloitte.domain.ddd.ApplicationService;
 import uk.co.deloitte.domain.org.IOrganisationRepository;
