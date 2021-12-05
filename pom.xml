@@ -123,6 +123,11 @@
                 <artifactId>jsonassert</artifactId>
                 <version>${json.assert.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>3.18.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
