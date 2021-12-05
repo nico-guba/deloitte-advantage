@@ -8,6 +8,8 @@ public class Member implements Aggregate<MemberId> {
 
     private final MemberId id;
 
+    private Password password;
+
     public boolean isActive() {
         return active;
     }
@@ -45,5 +47,13 @@ public class Member implements Aggregate<MemberId> {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public void password(final Password value) {
+        this.password = value;
+    }
+
+    public boolean hasPassword(final String password) {
+        return this.password.equals(Password.with(password));
     }
 }
