@@ -8,12 +8,25 @@ public class Member implements Aggregate<MemberId> {
 
     private final MemberId id;
 
+    public boolean isActive() {
+        return active;
+    }
+
+    private boolean active;
+
+    public void deactivate() {
+        active = false;
+    }
     private Member(final MemberId id) {
         this.id = id;
     }
 
     public static Member with(MemberId id) {
         return new Member(id);
+    }
+
+    public void activate() {
+        active = true;
     }
 
     @Override
