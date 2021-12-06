@@ -1,3 +1,6 @@
 This project uses the C4 model to document architectural decisions.  http://c4model.com
 
-To open *.drawio files, go to https://www.diagrams.net
+To open *.drawio files or the editable *.png files, go to https://www.diagrams.net
+
+For the diagrams.net IntelliJ integration, see https://plugins.jetbrains.com/plugin/15635-diagrams-net-integration
+
