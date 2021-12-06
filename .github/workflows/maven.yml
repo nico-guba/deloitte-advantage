@@ -27,8 +27,8 @@ jobs:
           servers: |
             [{
               "id": "aws",
-              "username": "${{ secrets.AWS_KEY }}",
-              "password": "${{ secrets.AWS_SECRET }}"
+              "username": "${{ secrets.AWS_ACCESS_KEY_ID }}",
+              "password": "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
             }]
       - name: Test and Deploy with Maven
         run: mvn --quiet -B package --file pom.xml
