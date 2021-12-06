@@ -15,19 +15,23 @@
         <module name="domain" />
         <module name="deloitte-advantage" />
         <module name="test-support-lambda" />
-        <module name="rest-gateway" />
+        <module name="arse" />
         <module name="example" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="advantage" target="11" />
       <module name="application" target="11" />
+      <module name="arse" target="11" />
       <module name="domain" target="11" />
       <module name="example" target="11" />
+      <module name="foo" target="11" />
       <module name="infrastructure" target="11" />
+      <module name="layers" target="11" />
       <module name="presentation" target="11" />
       <module name="presentation-common" target="11" />
       <module name="rest-gateway" target="11" />
+      <module name="src" target="11" />
       <module name="test-support" target="11" />
       <module name="test-support-lambda" target="11" />
       <module name="zone" target="11" />

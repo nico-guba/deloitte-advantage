@@ -9,6 +9,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/common/pom.xml" />
+        <option value="$PROJECT_DIR$/layers/presentation/arse/pom.xml" />
       </set>
     </option>
   </component>

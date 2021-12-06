@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/application/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/application/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/domain/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/domain/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/infrastructure/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/infrastructure/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/presentation/example/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/presentation/example/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/presentation/presentation-common/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/presentation/presentation-common/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/presentation/rest-gateway/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/presentation/rest-gateway/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/presentation/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/presentation/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/presentation/zone/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/presentation/zone/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/application/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/application/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/domain/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/domain/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/foo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/foo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/infrastructure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/infrastructure/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/arse/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/arse/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/example/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/example/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/presentation-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/presentation-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/rest-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/rest-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/zone/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/zone/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/test-support-lambda/src/main/java" charset="UTF-8" />

@@ -3,16 +3,16 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/advantage.iml" filepath="$PROJECT_DIR$/advantage.iml" />
-      <module fileurl="file://$PROJECT_DIR$/application/application.iml" filepath="$PROJECT_DIR$/application/application.iml" />
-      <module fileurl="file://$PROJECT_DIR$/domain/domain.iml" filepath="$PROJECT_DIR$/domain/domain.iml" />
-      <module fileurl="file://$PROJECT_DIR$/presentation/example/example.iml" filepath="$PROJECT_DIR$/presentation/example/example.iml" />
-      <module fileurl="file://$PROJECT_DIR$/infrastructure/infrastructure.iml" filepath="$PROJECT_DIR$/infrastructure/infrastructure.iml" />
-      <module fileurl="file://$PROJECT_DIR$/presentation/presentation.iml" filepath="$PROJECT_DIR$/presentation/presentation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/presentation/presentation-common/presentation-common.iml" filepath="$PROJECT_DIR$/presentation/presentation-common/presentation-common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/presentation/rest-gateway/rest-gateway.iml" filepath="$PROJECT_DIR$/presentation/rest-gateway/rest-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/layers/application/application.iml" filepath="$PROJECT_DIR$/layers/application/application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/layers/domain/domain.iml" filepath="$PROJECT_DIR$/layers/domain/domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/layers/presentation/example/example.iml" filepath="$PROJECT_DIR$/layers/presentation/example/example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/layers/infrastructure/infrastructure.iml" filepath="$PROJECT_DIR$/layers/infrastructure/infrastructure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/layers/presentation/presentation.iml" filepath="$PROJECT_DIR$/layers/presentation/presentation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/layers/presentation/presentation-common/presentation-common.iml" filepath="$PROJECT_DIR$/layers/presentation/presentation-common/presentation-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/layers/presentation/rest-gateway/rest-gateway.iml" filepath="$PROJECT_DIR$/layers/presentation/rest-gateway/rest-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/test-support/test-support.iml" filepath="$PROJECT_DIR$/test-support/test-support.iml" />
       <module fileurl="file://$PROJECT_DIR$/test-support-lambda/test-support-lambda.iml" filepath="$PROJECT_DIR$/test-support-lambda/test-support-lambda.iml" />
-      <module fileurl="file://$PROJECT_DIR$/presentation/zone/zone.iml" filepath="$PROJECT_DIR$/presentation/zone/zone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/layers/presentation/zone/zone.iml" filepath="$PROJECT_DIR$/layers/presentation/zone/zone.iml" />
     </modules>
   </component>
 </project>
