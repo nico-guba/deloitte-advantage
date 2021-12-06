@@ -31,4 +31,4 @@ jobs:
               "password": "${{ secrets.AWS_SECRET }}"
             }]
       - name: Test and Deploy with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn --quiet -B package --file pom.xml
