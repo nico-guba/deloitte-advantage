@@ -2,7 +2,6 @@ package uk.co.deloitte.advantage.zone.presentation;
 
 import uk.co.deloitte.advantage.zone.presentation.resources.FacilityResource;
 import uk.co.deloitte.advantage.zone.presentation.resources.ZoneResource;
-import uk.co.deloitte.domain.DomainTestFactory;
 
 import java.util.Set;
 

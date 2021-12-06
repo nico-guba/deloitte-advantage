@@ -16,6 +16,7 @@
         <module name="deloitte-advantage" />
         <module name="test-support-lambda" />
         <module name="arse" />
+        <module name="rest-gateway" />
         <module name="example" />
       </profile>
     </annotationProcessing>
