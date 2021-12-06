@@ -27,7 +27,7 @@ class FacilityTest implements EntityEqualityVerifier<Facility> {
 
     @Test
     void toStringTest() {
-        assertEquals("Facility[id=FacilityId[value=a3b6fbea-8fc6-4233-94a7-dd60e175c02c]]", actual.toString());
+        assertEquals("Facility[id=a3b6fbea-8fc6-4233-94a7-dd60e175c02c]", actual.toString());
     }
 
     @Override

@@ -16,7 +16,7 @@ class ZoneTest implements EntityEqualityVerifier<Zone> {
     @DisplayName("Create Zone with invalid id.")
     void createZoneWithInValidIdTest() {
         IllegalArgumentException actual = assertThrows(IllegalArgumentException.class, ZoneTest::createInvalidZone);
-        assertEquals("Zone must contain a present value.", actual.getMessage());
+        assertEquals("Zone Identity must contain a present value.", actual.getMessage());
     }
 
     @Test
@@ -59,8 +59,8 @@ class ZoneTest implements EntityEqualityVerifier<Zone> {
         addA1TennisFacility();
         assertEquals("Zone[id=359dfe3f-aaad-461c-87a7-08d9368584f1, " +
                 "siteId=c690449a-eab4-49a9-981c-42ba6afe35e6, " +
-                "facilities={FacilityId[value=a3b6fbea-8fc6-4233-94a7-dd60e175c02c]=" +
-                "Facility[id=FacilityId[value=a3b6fbea-8fc6-4233-94a7-dd60e175c02c]]}]", actual.toString());
+                "facilities={a3b6fbea-8fc6-4233-94a7-dd60e175c02c=" +
+                "Facility[id=a3b6fbea-8fc6-4233-94a7-dd60e175c02c]}]", actual.toString());
     }
 
     @Override
