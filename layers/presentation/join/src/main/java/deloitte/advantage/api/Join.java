@@ -18,7 +18,7 @@ public class Join implements RequestHandler<APIGatewayProxyRequestEvent, APIGate
             switch (input.getHttpMethod()) {
                 case "POST":
                     final String response = "Received subscription for id=" + input.getPathParameters().get("subscription_id");
-                    return factory.makeSuccessResponse(input);
+                    return factory.makeSuccessResponse(response);
                 default:
                     throw new IllegalStateException("Unexpected value: " + input.getHttpMethod());
             }
