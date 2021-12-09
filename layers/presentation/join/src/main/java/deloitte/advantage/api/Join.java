@@ -7,8 +7,6 @@ import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import deloitte.advantage.lambda.EventFactory;
 
-import java.util.Map;
-
 public class Join implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
     EventFactory factory = new EventFactory(new ObjectMapper());
@@ -16,11 +14,10 @@ public class Join implements RequestHandler<APIGatewayProxyRequestEvent, APIGate
     @Override
     public APIGatewayProxyResponseEvent handleRequest(final APIGatewayProxyRequestEvent input, final Context context) {
         try {
-            context.getLogger().log(input.getBody());
-            Map<String, Object> body = factory.readBody(input);
+           // context.getLogger().log(input.getBody());
             switch (input.getHttpMethod()) {
                 case "POST":
-                    return factory.makeSuccessResponse(input.getPathParameters());
+                    return factory.makeSuccessResponse(input);
                 default:
                     throw new IllegalStateException("Unexpected value: " + input.getHttpMethod());
             }
