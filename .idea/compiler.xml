@@ -7,16 +7,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="presentation-common" />
         <module name="test-support" />
         <module name="application" />
-        <module name="zone" />
         <module name="infrastructure" />
         <module name="domain" />
         <module name="join" />
         <module name="deloitte-advantage" />
         <module name="test-support-lambda" />
         <module name="arse" />
+      </profile>
+      <profile name="Annotation profile for Deloitte Advantage" enabled="true">
+        <sourceOutputDir name="../../../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="presentation-common" />
+        <module name="zone" />
         <module name="rest-gateway" />
       </profile>
     </annotationProcessing>

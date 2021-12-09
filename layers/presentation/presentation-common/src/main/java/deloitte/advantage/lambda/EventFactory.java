@@ -29,9 +29,15 @@ public class EventFactory {
     public APIGatewayProxyResponseEvent makeSuccessResponse(Map<String, Object> body) throws JsonProcessingException {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
-        headers.put("X-Custom-Header", "Hello Happy Taxpayers!");
         return new APIGatewayProxyResponseEvent().withHeaders(headers).withStatusCode(200)
                 .withBody(mapper.writeValueAsString(body));
+    }
+
+    public APIGatewayProxyResponseEvent makeSuccessResponse(Object content) throws JsonProcessingException {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        return new APIGatewayProxyResponseEvent().withHeaders(headers).withStatusCode(200)
+                .withBody(mapper.writeValueAsString(content));
     }
 
     public APIGatewayProxyResponseEvent makeErrorResponse(Exception e) {
