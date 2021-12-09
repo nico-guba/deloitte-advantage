@@ -5,8 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/advantage.iml" filepath="$PROJECT_DIR$/advantage.iml" />
       <module fileurl="file://$PROJECT_DIR$/layers/application/application.iml" filepath="$PROJECT_DIR$/layers/application/application.iml" />
       <module fileurl="file://$PROJECT_DIR$/layers/domain/domain.iml" filepath="$PROJECT_DIR$/layers/domain/domain.iml" />
-      <module fileurl="file://$PROJECT_DIR$/layers/presentation/example/example.iml" filepath="$PROJECT_DIR$/layers/presentation/example/example.iml" />
       <module fileurl="file://$PROJECT_DIR$/layers/infrastructure/infrastructure.iml" filepath="$PROJECT_DIR$/layers/infrastructure/infrastructure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/layers/presentation/join/join.iml" filepath="$PROJECT_DIR$/layers/presentation/join/join.iml" />
       <module fileurl="file://$PROJECT_DIR$/layers/presentation/presentation.iml" filepath="$PROJECT_DIR$/layers/presentation/presentation.iml" />
       <module fileurl="file://$PROJECT_DIR$/layers/presentation/presentation-common/presentation-common.iml" filepath="$PROJECT_DIR$/layers/presentation/presentation-common/presentation-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/layers/presentation/rest-gateway/rest-gateway.iml" filepath="$PROJECT_DIR$/layers/presentation/rest-gateway/rest-gateway.iml" />

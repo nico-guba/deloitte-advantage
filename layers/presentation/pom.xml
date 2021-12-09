@@ -13,9 +13,9 @@
     <artifactId>presentation</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>example</module>
         <module>rest-gateway</module>
         <module>presentation-common</module>
         <module>zone</module>
+        <module>join</module>
     </modules>
 </project>
