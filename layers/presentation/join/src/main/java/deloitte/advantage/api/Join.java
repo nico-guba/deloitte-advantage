@@ -3,9 +3,11 @@ package deloitte.advantage.api;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 
-public class Join implements RequestHandler<Integer, String> {
+import java.util.Map;
+
+public class Join implements RequestHandler<Map<String, String>, String> {
     @Override
-    public String handleRequest(final Integer input, final Context context) {
+    public String handleRequest(final Map<String, String> input, final Context context) {
         return "Received " + input;
     }
 }
