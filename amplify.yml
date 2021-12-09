@@ -6,7 +6,7 @@ frontend:
       commands: []
   artifacts:
     # IMPORTANT - Please verify your build output directory
-    baseDirectory: /presentation/src/main/resources
+    baseDirectory: /layers/presentation/src/main/resources
     files:
       - '**/*.html'
   cache:
