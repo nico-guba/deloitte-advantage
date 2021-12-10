@@ -14,8 +14,9 @@ public class Join implements RequestHandler<APIGatewayProxyRequestEvent, APIGate
     @Override
     public APIGatewayProxyResponseEvent handleRequest(final APIGatewayProxyRequestEvent input, final Context context) {
         try {
+            context.getLogger().log("METHOD: " + input.getHttpMethod());
             switch (input.getHttpMethod()) {
-                case "GET":
+                case "POST":
                     final String response = "Received subscription for id=" + input.getPathParameters().get("subscription_id");
                     return factory.makeSuccessResponse(response);
                 default:
