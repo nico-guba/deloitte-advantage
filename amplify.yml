@@ -6,8 +6,8 @@ frontend:
       commands: []
   artifacts:
     # IMPORTANT - Please verify your build output directory
-    baseDirectory: /layers/presentation/src/main/resources
+    baseDirectory: /layers/presentation/ui/target/output
     files:
-      - '**/*.html'
+      - '**/*'
   cache:
     paths: []
