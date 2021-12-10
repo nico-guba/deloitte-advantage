@@ -38,7 +38,7 @@ public class EventFactory {
         headers.put("Content-Type", "application/json");
         APIGatewayProxyResponseEvent event = new APIGatewayProxyResponseEvent().withHeaders(headers).withStatusCode(200);
         if(content != null) {
-            return event.withBody(content.toString());
+            return event.withBody(mapper.writeValueAsString(content));
         }
         return event;
     }
