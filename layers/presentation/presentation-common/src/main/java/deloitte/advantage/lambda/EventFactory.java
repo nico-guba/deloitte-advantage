@@ -53,4 +53,11 @@ public class EventFactory {
         return new APIGatewayProxyResponseEvent().withHeaders(headers)
                 .withBody("{ \"message\":\"" + message + "\"}").withStatusCode(500);
     }
+
+    public APIGatewayProxyResponseEvent makeInvalidRequestResponse(final String message) {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        return new APIGatewayProxyResponseEvent().withHeaders(headers)
+                .withBody("{ \"message\":\"" + message + "\"}").withStatusCode(400);
+    }
 }

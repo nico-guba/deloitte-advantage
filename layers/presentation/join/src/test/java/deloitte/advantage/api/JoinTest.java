@@ -6,9 +6,7 @@ import deloitte.advantage.lambda.TestContext;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -42,20 +40,31 @@ class JoinTest {
     // candidate for test utility
     @Test
     void onlyHandleValidHttpMethods() {
+        Map<String, String> params = new HashMap<>();
+        params.put("subscription_id", "social");
 
         for (String method : allMethods) {
-            // ensure the http method is set in the request, everything else should be null in the event
-            // to test that the handler can terminate in a known state
-            APIGatewayProxyResponseEvent response = handler.handleRequest(event.clone().withHttpMethod(method), context);
-            Integer statusCode = Integer.valueOf(response.getStatusCode());
+            // ensure the http method tested is set in the request
+            APIGatewayProxyResponseEvent response =
+                    handler.handleRequest(event.withHttpMethod(method).withPathParameters(params), context);
             if (validMethods.contains(method)) {
-                assertThat(statusCode).isGreaterThanOrEqualTo(200).isLessThan(400);
+                assertThat(getStatusCode(response)).isGreaterThanOrEqualTo(200).isLessThan(400);
             } else {
-                assertThat(statusCode).isGreaterThanOrEqualTo(400);
+                assertThat(getStatusCode(response)).isGreaterThanOrEqualTo(400);
             }
         }
     }
 
+    private Integer getStatusCode(final APIGatewayProxyResponseEvent response) {
+        return Integer.valueOf(response.getStatusCode());
+    }
+
+    @Test
+    void failsWithNullSubscriptionId() {
+        APIGatewayProxyResponseEvent response = handler.handleRequest(event, context);
+
+        assertThat(getStatusCode(response)).isEqualTo(400);
+    }
 
 
 }

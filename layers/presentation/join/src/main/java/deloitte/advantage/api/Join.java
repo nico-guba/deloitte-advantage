@@ -7,6 +7,9 @@ import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import deloitte.advantage.lambda.EventFactory;
 
+/**
+ * API for new members to join the organisation online.
+ */
 public class Join implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
     EventFactory factory = new EventFactory(new ObjectMapper());
@@ -14,9 +17,12 @@ public class Join implements RequestHandler<APIGatewayProxyRequestEvent, APIGate
     @Override
     public APIGatewayProxyResponseEvent handleRequest(final APIGatewayProxyRequestEvent input, final Context context) {
         try {
-            context.getLogger().log("METHOD: " + input.getHttpMethod());
-            final String message = "Received subscription for id=" + getSubscriptionId(input);
-
+            String subscriptionId = getSubscriptionId(input);
+            final String message = "Received subscription for id=" + subscriptionId;
+            if(subscriptionId == null) {
+                return factory.makeInvalidRequestResponse("subscription_id cannot be null");
+            }
+            
             switch (input.getHttpMethod()) {
                 case "POST":
                     return factory.makeSuccessResponse(message);
