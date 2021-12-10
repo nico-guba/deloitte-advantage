@@ -18,5 +18,6 @@
         <module>zone</module>
         <module>join</module>
         <module>product</module>
+        <module>ui</module>
     </modules>
 </project>
