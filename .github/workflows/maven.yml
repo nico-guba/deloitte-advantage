@@ -44,4 +44,4 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Test and Deploy with Maven
-        run: mvn --quiet -B package --file pom.xml
+        run: mvn -B package --file pom.xml
