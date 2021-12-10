@@ -27,6 +27,11 @@ jobs:
           distribution: 'adopt'
           cache: maven
 
+      - name: Set up Node 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.13.1'
+
       - uses: s4u/maven-settings-action@v2.4.1
         with:
           servers: |
