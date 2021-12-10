@@ -22,7 +22,6 @@ public class Join implements RequestHandler<APIGatewayProxyRequestEvent, APIGate
             if (subscriptionId == null) {
                 return factory.makeInvalidRequestResponse("subscription_id cannot be null");
             }
-
             if ("POST".equals(input.getHttpMethod())) {
                 return factory.makeSuccessResponse(message);
             }

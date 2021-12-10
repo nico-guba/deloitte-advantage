@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/layers/presentation/join/join.iml" filepath="$PROJECT_DIR$/layers/presentation/join/join.iml" />
       <module fileurl="file://$PROJECT_DIR$/layers/presentation/presentation.iml" filepath="$PROJECT_DIR$/layers/presentation/presentation.iml" />
       <module fileurl="file://$PROJECT_DIR$/layers/presentation/presentation-common/presentation-common.iml" filepath="$PROJECT_DIR$/layers/presentation/presentation-common/presentation-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/layers/presentation/product/product.iml" filepath="$PROJECT_DIR$/layers/presentation/product/product.iml" />
       <module fileurl="file://$PROJECT_DIR$/layers/presentation/rest-gateway/rest-gateway.iml" filepath="$PROJECT_DIR$/layers/presentation/rest-gateway/rest-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/test-support/test-support.iml" filepath="$PROJECT_DIR$/test-support/test-support.iml" />
       <module fileurl="file://$PROJECT_DIR$/test-support-lambda/test-support-lambda.iml" filepath="$PROJECT_DIR$/test-support-lambda/test-support-lambda.iml" />

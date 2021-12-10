@@ -66,5 +66,4 @@ class JoinTest {
         assertThat(getStatusCode(response)).isEqualTo(400);
     }
 
-
 }

@@ -3,20 +3,17 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>parent</artifactId>
+        <artifactId>presentation</artifactId>
         <groupId>uk.co.deloitte.advantage</groupId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <name>layer: presentation</name>
-    <artifactId>presentation</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>rest-gateway</module>
-        <module>presentation-common</module>
-        <module>zone</module>
-        <module>join</module>
-        <module>product</module>
-    </modules>
+
+    <artifactId>product</artifactId>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
 </project>
