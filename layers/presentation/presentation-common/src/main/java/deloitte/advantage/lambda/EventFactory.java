@@ -36,14 +36,21 @@ public class EventFactory {
     public APIGatewayProxyResponseEvent makeSuccessResponse(Object content) throws JsonProcessingException {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
-        return new APIGatewayProxyResponseEvent().withHeaders(headers).withStatusCode(200)
-                .withBody(mapper.writeValueAsString(content));
+        APIGatewayProxyResponseEvent event = new APIGatewayProxyResponseEvent().withHeaders(headers).withStatusCode(200);
+        if(content != null) {
+            return event.withBody(content.toString());
+        }
+        return event;
     }
 
     public APIGatewayProxyResponseEvent makeErrorResponse(Exception e) {
+        return makeErrorResponse(e.getMessage());
+    }
+
+    public APIGatewayProxyResponseEvent makeErrorResponse(final String message) {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
-       return new APIGatewayProxyResponseEvent().withHeaders(headers)
-               .withBody("{ \"message\":\"" + e.getMessage() + "\"}").withStatusCode(500);
+        return new APIGatewayProxyResponseEvent().withHeaders(headers)
+                .withBody("{ \"message\":\"" + message + "\"}").withStatusCode(500);
     }
 }
