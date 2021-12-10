@@ -121,7 +121,7 @@ const Landing = () => {
                 <div className="avia-button-wrap avia-button-center  avia-builder-el-34  el_after_av_hr  el_before_av_hr  "><a
                     href="https://clients.mindbodyonline.com/classic/ws?studioid=217570&amp;stype=40&amp;prodid=184"
                     className="avia-button avia-button-fullwidth   avia-icon_select-no avia-color-theme-color-highlight "
-                    target="_blank" style={{ color: '#ffffff' }}><span className="avia_iconbox_title">Buy online</span><span
+                    target="_blank" rel="noreferrer" style={{ color: '#ffffff' }}><span className="avia_iconbox_title">Buy online</span><span
                         className="avia_button_background avia-button avia-button-fullwidth avia-color-theme-color"></span></a></div>
                 <div style={{ height: '10px' }}
                     className="hr hr-invisible   avia-builder-el-35  el_after_av_button_big  el_before_av_textblock  avia-builder-el-first  ">
@@ -172,7 +172,7 @@ const Landing = () => {
                 <div className="avia-button-wrap avia-button-center  avia-builder-el-42  el_after_av_textblock  el_before_av_textblock  ">
                     <a href="https://clients.mindbodyonline.com/classic/ws?studioid=217570&amp;stype=40&amp;prodId=169"
                         className="avia-button avia-button-fullwidth   avia-icon_select-no avia-color-theme-color-highlight "
-                        target="_blank" style={{ color: '#ffffff' }}><span className="avia_iconbox_title">Buy online</span><span
+                        target="_blank" rel="noreferrer" style={{ color: '#ffffff' }}><span className="avia_iconbox_title">Buy online</span><span
                             className="avia_button_background avia-button avia-button-fullwidth avia-color-theme-color"></span></a>
                 </div>
                 <section className="av_textblock_section " itemScope={true} itemType="https://schema.org/CreativeWork">
@@ -218,7 +218,7 @@ const Landing = () => {
                 <div className="avia-button-wrap avia-button-center  avia-builder-el-48  el_after_av_textblock  el_before_av_textblock  ">
                     <a href="https://clients.mindbodyonline.com/classic/ws?studioid=217570&amp;stype=40&amp;prodId=170"
                         className="avia-button avia-button-fullwidth   avia-icon_select-no avia-color-theme-color-highlight "
-                        target="_blank" style={{ color: '#ffffff' }}><span className="avia_iconbox_title">Buy online</span><span
+                        target="_blank" rel="noreferrer" style={{ color: '#ffffff' }}><span className="avia_iconbox_title">Buy online</span><span
                             className="avia_button_background avia-button avia-button-fullwidth avia-color-theme-color"></span></a>
                 </div>
                 <section className="av_textblock_section " itemScope={true} itemType="https://schema.org/CreativeWork">
