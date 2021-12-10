@@ -1,5 +1,6 @@
 package uk.co.deloitte.domain.ddd.support;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import uk.co.deloitte.domain.ddd.Identity;
@@ -8,9 +9,7 @@ import uk.co.deloitte.test.support.EqualityVerifier;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public interface IdentityVerifier<I extends Identity<?>> extends EqualityVerifier<I> {
 
@@ -56,6 +55,8 @@ public interface IdentityVerifier<I extends Identity<?>> extends EqualityVerifie
     }
 
     @Test
+    @Disabled("not sure if it belongs in here or is even necessary.  It would make sense having this " +
+            "test in a specialised fixture focussing on uuids")
     @DisplayName("Create Identity with random UUID.")
     default void createWithRandomUUIDTest() {
         Set<I> created = new HashSet<>();
