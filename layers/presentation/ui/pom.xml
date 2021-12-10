@@ -62,10 +62,10 @@
               <execution>
                 <id>javascript tests</id>
                 <goals>
-                  <goal>karma</goal>
+                  <goal>npm</goal>
                 </goals>
                 <configuration>
-                  <karmaConfPath>src/test/javascript/karma.conf.ci.js</karmaConfPath>
+                  <arguments>run ci-test</arguments>
                 </configuration>
               </execution>
     
