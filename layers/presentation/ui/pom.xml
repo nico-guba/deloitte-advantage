@@ -91,6 +91,19 @@
             </configuration>
           </execution>
 
+          <execution>
+            <id>UI: Package</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+
+            <phase>package</phase>
+
+            <configuration>
+              <arguments>run package</arguments>
+            </configuration>
+          </execution>
+
         </executions>
       </plugin>
     </plugins>
