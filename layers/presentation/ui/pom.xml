@@ -1,78 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>presentation</artifactId>
-        <groupId>uk.co.deloitte.advantage</groupId>
-        <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
-    <artifactId>ui</artifactId>
-    <packaging>pom</packaging>
-    <name>layer: presentation: UI</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>presentation</artifactId>
+    <groupId>uk.co.deloitte.advantage</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>ui</artifactId>
+  <packaging>pom</packaging>
+  <name>layer: presentation: UI</name>
 
-    <properties>
-        <version.mvnFrontend>1.12.0</version.mvnFrontend>
-        <version.node>16.13.1</version.node>
-    </properties>
+  <properties>
+    <version.mvnFrontend>1.12.0</version.mvnFrontend>
+    <version.node>16.13.1</version.node>
+  </properties>
 
-    <build>
-        <plugins>
-          <plugin>
-            <groupId>com.github.eirslett</groupId>
-            <artifactId>frontend-maven-plugin</artifactId>
-            <!-- NB! Set <version> to the latest released version of frontend-maven-plugin, like in README.md -->
-            <version>${version.mvnFrontend}</version>
-    
-            <executions>
-              <execution>
-                <id>install node and npm</id>
-                <goals>
-                  <goal>install-node-and-npm</goal>
-                </goals>
-                <configuration>
-                  <nodeVersion>v${version.node}</nodeVersion>
-                </configuration>
-              </execution>
-    
-              <execution>
-                <id>npm install</id>
-                <goals>
-                  <goal>npm</goal>
-                </goals>
-                <!-- Optional configuration which provides for running any npm command -->
-                <configuration>
-                  <arguments>install</arguments>
-                </configuration>
-              </execution>
-    
-              <execution>
-                <id>npm run build</id>
-                <goals>
-                  <goal>npm</goal>
-                </goals>
-                <configuration>
-                  <arguments>run build</arguments>
-                </configuration>
-              </execution>
-    
-              <execution>
-                <id>javascript tests</id>
-                <goals>
-                  <goal>npm</goal>
-                </goals>
+  <build>
+    <plugins>
 
-                <phase>test</phase>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>node_modules</directory>
+              <followSymlinks>false</followSymlinks>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
 
-                <configuration>
-                  <arguments>run ci-test</arguments>
-                </configuration>
-              </execution>
-    
-            </executions>
-          </plugin>
-        </plugins>
-    </build>
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <!-- NB! Set <version> to the latest released version of frontend-maven-plugin, like in README.md -->
+        <version>${version.mvnFrontend}</version>
+
+        <configuration>
+          <installDirectory>target</installDirectory>
+        </configuration>
+
+        <executions>
+          <execution>
+            <id>UI: Install Node</id>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+
+            <phase>initialize</phase>
+
+            <configuration>
+              <nodeVersion>v${version.node}</nodeVersion>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>UI: Install Project Dependencies</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+
+            <!-- Optional configuration which provides for running any npm command -->
+            <configuration>
+              <arguments>install</arguments>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>UI: Build</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <configuration>
+              <arguments>run build</arguments>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>UI: Test</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+
+            <phase>test</phase>
+
+            <configuration>
+              <arguments>run ci-test</arguments>
+            </configuration>
+          </execution>
+
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>
