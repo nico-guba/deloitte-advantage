@@ -27,7 +27,6 @@
             <version>${version.mvnFrontend}</version>
     
             <executions>
-    
               <execution>
                 <id>install node and npm</id>
                 <goals>
@@ -64,6 +63,9 @@
                 <goals>
                   <goal>npm</goal>
                 </goals>
+
+                <phase>test</phase>
+
                 <configuration>
                   <arguments>run ci-test</arguments>
                 </configuration>
