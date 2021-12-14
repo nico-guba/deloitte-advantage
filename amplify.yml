@@ -14,22 +14,28 @@ frontend:
   phases:
     preBuild:
       commands:
-        - cd ${UI_BASE}
+        - _CWD="$(pwd)"
+        - cd "${_CWD}/${UI_BASE}"
         - npm ci
+        - npm run ci-test
     build:
       commands:
         - npm run build
+    postBuild:
+      commands: []
   artifacts:
-    baseDirectory: ${UI_BASE}/target/output
+    baseDirectory: ${_CWD}/${UI_BASE}/target/output
     files:
       - '**/*'
 test:
   phases:
     preTest:
-      commands:
-        - cd ${UI_BASE}
-        - npm --version
-        - npm install
+      commands: []
     test:
-      commands:
-        - npm run ci-test
+      commands: []
+    postTest:
+      commands: []
+  artifacts:
+    baseDirectory: ""
+    configFilePath: ""
+    files: []
