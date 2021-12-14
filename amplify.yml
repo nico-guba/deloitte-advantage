@@ -28,7 +28,8 @@ test:
     preTest:
       commands:
         - cd ${UI_BASE}
-        - npm ci
+        - npm --version
+        - npm install
     test:
       commands:
         - npm run ci-test
