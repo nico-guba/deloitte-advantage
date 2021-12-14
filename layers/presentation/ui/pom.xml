@@ -25,6 +25,7 @@
         <configuration>
           <filesets>
             <fileset>
+              <directory>build</directory>
               <directory>node_modules</directory>
               <followSymlinks>false</followSymlinks>
             </fileset>

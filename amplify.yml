@@ -24,7 +24,7 @@ frontend:
         - npm run build
     postBuild:
       commands: 
-        - cp -r "${_CWD}/${UI_BASE}/target/output" "/deploy"
+        - cp -r "${_CWD}/${UI_BASE}/build" "/deploy"
   artifacts:
     baseDirectory: /deploy
     files:
