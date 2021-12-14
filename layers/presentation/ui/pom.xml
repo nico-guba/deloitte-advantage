@@ -62,9 +62,11 @@
               <goal>npm</goal>
             </goals>
 
+            <phase>validate</phase>
+
             <!-- Optional configuration which provides for running any npm command -->
             <configuration>
-              <arguments>install</arguments>
+              <arguments>ci</arguments>
             </configuration>
           </execution>
 
@@ -73,6 +75,9 @@
             <goals>
               <goal>npm</goal>
             </goals>
+
+            <phase>compile</phase>
+
             <configuration>
               <arguments>run build</arguments>
             </configuration>
