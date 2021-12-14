@@ -15,11 +15,12 @@ frontend:
     preBuild:
       commands:
         - cd ${UI_BASE}
+        - npm ci
     build:
       commands:
         - npm run build
   artifacts:
-    baseDirectory: ${UI_BASE}/build/output
+    baseDirectory: ${UI_BASE}/target/output
     files:
       - '**/*'
 test:
@@ -27,6 +28,7 @@ test:
     preTest:
       commands:
         - cd ${UI_BASE}
+        - npm ci
     test:
       commands:
         - npm run ci-test
