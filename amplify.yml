@@ -16,22 +16,21 @@ frontend:
       commands:
         - _CWD="$(pwd)"
         - cd "${_CWD}/${UI_BASE}"
-        - npm ci
+        - npm install
         - npm run ci-test
     build:
       commands:
         - cd "${_CWD}/${UI_BASE}"
         - npm run build
     postBuild:
-      commands: 
-        - cp -r "${_CWD}/${UI_BASE}/build" "/deploy"
+      commands: []
   artifacts:
-    baseDirectory: /deploy
+    baseDirectory: "${_CWD}/${UI_BASE}/build"
     files:
       - '**/*'
   cache:
     paths:
-      - /deploy/**/*
+      - "${_CWD}/${UI_BASE}/node_modules/**/*"
 test:
   phases:
     preTest:
