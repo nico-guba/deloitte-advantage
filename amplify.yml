@@ -27,7 +27,6 @@ test:
   phases:
     preTest:
       commands:
-        - cd ${UI_BASE}
         - npm ci
     test:
       commands:
