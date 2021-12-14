@@ -37,5 +37,5 @@ test:
     postTest:
       commands: []
   artifacts:
-    baseDirectory: ${_CWD}/${UI_BASE}
+    baseDirectory: ./
     files: []
