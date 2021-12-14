@@ -28,6 +28,7 @@ frontend:
     baseDirectory: layers/presentation/ui/build"
     files:
       - '**/*'
+      - './*'
   cache:
     paths:
       - layers/presentation/ui/node_modules/**/*
