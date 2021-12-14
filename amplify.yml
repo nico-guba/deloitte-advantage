@@ -17,7 +17,7 @@ frontend:
         - cd ${UI_BASE}
     build:
       commands:
-        - ./mvnw compile
+        - npm run build
   artifacts:
     baseDirectory: ${UI_BASE}/build/output
     files:
@@ -29,4 +29,4 @@ test:
         - cd ${UI_BASE}
     test:
       commands:
-        - ./mvnw test
+        - npm run ci-test
