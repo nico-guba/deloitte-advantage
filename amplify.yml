@@ -25,12 +25,12 @@ frontend:
     postBuild:
       commands: []
   artifacts:
-    baseDirectory: "${_CWD}/${UI_BASE}/build"
+    baseDirectory: layers/presentation/ui/build"
     files:
       - '**/*'
   cache:
     paths:
-      - "${_CWD}/${UI_BASE}/node_modules/**/*"
+      - layers/presentation/ui/node_modules/**/*
 test:
   phases:
     preTest:
