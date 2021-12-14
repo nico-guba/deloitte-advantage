@@ -20,6 +20,7 @@ frontend:
         - npm run ci-test
     build:
       commands:
+        - cd "${_CWD}/${UI_BASE}"
         - npm run build
     postBuild:
       commands: []
@@ -36,6 +37,5 @@ test:
     postTest:
       commands: []
   artifacts:
-    baseDirectory: ${_CWD}/${UI_BASE}/target/output
-    files:
-      - '**/*'
+    baseDirectory: ${_CWD}/${UI_BASE}
+    files: []
