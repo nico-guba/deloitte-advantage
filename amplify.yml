@@ -29,6 +29,9 @@ frontend:
     baseDirectory: /deploy
     files:
       - '**/*'
+  cache:
+    paths:
+      - /deploy/**/*
 test:
   phases:
     preTest:
