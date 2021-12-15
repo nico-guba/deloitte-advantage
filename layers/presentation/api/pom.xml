@@ -17,6 +17,7 @@
         <module>join</module>
         <module>product</module>
         <module>zone</module>
+        <module>rest-gateway</module>
     </modules>
 
 </project>
