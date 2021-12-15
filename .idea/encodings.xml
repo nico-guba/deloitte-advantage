@@ -11,12 +11,14 @@
     <file url="file://$PROJECT_DIR$/layers/infrastructure/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/api/join/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/api/join/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/arse/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/arse/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/example/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/example/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/layers/presentation/join/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/layers/presentation/join/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/presentation-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/presentation-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/product/src/main/java" charset="UTF-8" />

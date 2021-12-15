@@ -6,17 +6,14 @@
         <artifactId>parent</artifactId>
         <groupId>uk.co.deloitte.advantage</groupId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
+        <relativePath>../../../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <name>layer: presentation</name>
-    <artifactId>presentation</artifactId>
+
+    <artifactId>api</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>rest-gateway</module>
-        <module>presentation-common</module>
-        <module>zone</module>
-        <module>product</module>
-        <module>api</module>
+        <module>join</module>
     </modules>
+
 </project>
