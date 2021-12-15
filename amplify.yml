@@ -4,17 +4,17 @@ frontend:
   phases:
     preBuild:
       commands:
-        - cd /layers/presentation/ui
+        - cd layers/presentation/ui
         - npm install
         - npm run ci-test
     build:
       commands:
-        - cd /layers/presentation/ui
+        - cd layers/presentation/ui
         - npm run build
   artifacts:
-    baseDirectory: /layers/presentation/ui/build
+    baseDirectory: layers/presentation/ui/build
     files:
       - '**/*'
   cache:
     paths:
-      - /layers/presentation/ui/node_modules/**/*
+      - layers/presentation/ui/node_modules/**/*
