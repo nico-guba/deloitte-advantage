@@ -9,16 +9,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="shared" />
         <module name="product" />
-        <module name="deloitte-advantage" />
-        <module name="test-support-lambda" />
-        <module name="arse" />
-        <module name="rest-gateway" />
-        <module name="test-support" />
         <module name="application" />
+        <module name="test-support" />
         <module name="zone" />
         <module name="infrastructure" />
         <module name="domain" />
         <module name="join" />
+        <module name="deloitte-advantage" />
+        <module name="test-support-lambda" />
+        <module name="arse" />
+        <module name="rest-gateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -32,6 +32,7 @@
       <module name="infrastructure" target="11" />
       <module name="join" target="11" />
       <module name="layers" target="11" />
+      <module name="parent" target="11" />
       <module name="presentation" target="11" />
       <module name="product" target="11" />
       <module name="rest-gateway" target="11" />
