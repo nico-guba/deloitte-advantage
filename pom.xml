@@ -3,12 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <modules>
-        <module>test-support</module>
-        <module>test-support-lambda</module>
         <module>layers/presentation</module>
         <module>layers/application</module>
         <module>layers/domain</module>
         <module>layers/infrastructure</module>
+        <module>test</module>
     </modules>
     <groupId>uk.co.deloitte.advantage</groupId>
     <artifactId>parent</artifactId>

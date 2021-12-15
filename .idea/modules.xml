@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/layers/presentation/api/product/product.iml" filepath="$PROJECT_DIR$/layers/presentation/api/product/product.iml" />
       <module fileurl="file://$PROJECT_DIR$/layers/presentation/api/rest-gateway/rest-gateway.iml" filepath="$PROJECT_DIR$/layers/presentation/api/rest-gateway/rest-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/layers/presentation/api/shared/shared.iml" filepath="$PROJECT_DIR$/layers/presentation/api/shared/shared.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
       <module fileurl="file://$PROJECT_DIR$/test-support/test-support.iml" filepath="$PROJECT_DIR$/test-support/test-support.iml" />
       <module fileurl="file://$PROJECT_DIR$/test-support-lambda/test-support-lambda.iml" filepath="$PROJECT_DIR$/test-support-lambda/test-support-lambda.iml" />
       <module fileurl="file://$PROJECT_DIR$/layers/presentation/ui/ui.iml" filepath="$PROJECT_DIR$/layers/presentation/ui/ui.iml" />

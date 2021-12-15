@@ -37,6 +37,7 @@
       <module name="rest-gateway" target="11" />
       <module name="shared" target="11" />
       <module name="src" target="11" />
+      <module name="test" target="11" />
       <module name="test-support" target="11" />
       <module name="test-support-lambda" target="11" />
       <module name="ui" target="11" />
