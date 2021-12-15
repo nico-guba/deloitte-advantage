@@ -14,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/layers/presentation/rest-gateway/rest-gateway.iml" filepath="$PROJECT_DIR$/layers/presentation/rest-gateway/rest-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/test-support/test-support.iml" filepath="$PROJECT_DIR$/test-support/test-support.iml" />
       <module fileurl="file://$PROJECT_DIR$/test-support-lambda/test-support-lambda.iml" filepath="$PROJECT_DIR$/test-support-lambda/test-support-lambda.iml" />
+      <module fileurl="file://$PROJECT_DIR$/layers/presentation/ui/ui.iml" filepath="$PROJECT_DIR$/layers/presentation/ui/ui.iml" />
       <module fileurl="file://$PROJECT_DIR$/layers/presentation/zone/zone.iml" filepath="$PROJECT_DIR$/layers/presentation/zone/zone.iml" />
     </modules>
   </component>
