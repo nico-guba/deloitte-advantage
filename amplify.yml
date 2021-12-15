@@ -9,7 +9,6 @@ frontend:
         - npm run ci-test
     build:
       commands:
-        - cd layers/presentation/ui
         - npm run build
   artifacts:
     baseDirectory: layers/presentation/ui/build
