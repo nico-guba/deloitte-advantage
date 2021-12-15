@@ -1,45 +1,20 @@
 version: 1
-env:
-  variables:
-    UI_BASE: layers/presentation/ui
-backend:
-  phases:
-    preBuild:
-      commands: []
-    build:
-      commands: []
-    postBuild:
-      commands: []
+
 frontend:
   phases:
     preBuild:
       commands:
-        - _CWD="$(pwd)"
-        - cd "${_CWD}/${UI_BASE}"
+        - cd /layers/presentation/ui
         - npm install
         - npm run ci-test
     build:
       commands:
-        - cd "${_CWD}/${UI_BASE}"
+        - cd /layers/presentation/ui
         - npm run build
-    postBuild:
-      commands: []
   artifacts:
-    baseDirectory: layers/presentation/ui/build"
+    baseDirectory: /layers/presentation/ui/build
     files:
-      - '**/*.*'
-      - './*.*'
+      - '**/*'
   cache:
     paths:
-      - layers/presentation/ui/node_modules/**/*
-test:
-  phases:
-    preTest:
-      commands: []
-    test:
-      commands: []
-    postTest:
-      commands: []
-  artifacts:
-    baseDirectory: ./
-    files: []
+      - /layers/presentation/ui/node_modules/**/*
