@@ -7,7 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="presentation-common" />
+        <module name="shared" />
         <module name="product" />
         <module name="deloitte-advantage" />
         <module name="test-support-lambda" />
@@ -33,9 +33,9 @@
       <module name="join" target="11" />
       <module name="layers" target="11" />
       <module name="presentation" target="11" />
-      <module name="presentation-common" target="11" />
       <module name="product" target="11" />
       <module name="rest-gateway" target="11" />
+      <module name="shared" target="11" />
       <module name="src" target="11" />
       <module name="test-support" target="11" />
       <module name="test-support-lambda" target="11" />

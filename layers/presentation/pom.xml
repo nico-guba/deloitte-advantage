@@ -13,7 +13,6 @@
     <artifactId>presentation</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>presentation-common</module>
         <module>api</module>
     </modules>
 </project>

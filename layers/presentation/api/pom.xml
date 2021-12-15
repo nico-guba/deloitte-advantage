@@ -18,6 +18,7 @@
         <module>product</module>
         <module>zone</module>
         <module>rest-gateway</module>
+        <module>shared</module>
     </modules>
 
 </project>

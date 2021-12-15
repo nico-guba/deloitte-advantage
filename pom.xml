@@ -68,7 +68,7 @@
             <!-- Multi-project modules -->
             <dependency>
                 <groupId>uk.co.deloitte.advantage</groupId>
-                <artifactId>presentation-common</artifactId>
+                <artifactId>shared</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

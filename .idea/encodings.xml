@@ -17,6 +17,8 @@
     <file url="file://$PROJECT_DIR$/layers/presentation/api/product/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/api/rest-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/api/rest-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/api/shared/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/layers/presentation/api/shared/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/api/zone/src/main/java" charset="UTF-8" />
@@ -25,8 +27,6 @@
     <file url="file://$PROJECT_DIR$/layers/presentation/arse/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/example/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/example/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/layers/presentation/presentation-common/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/layers/presentation/presentation-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/layers/presentation/ui/src/main/java" charset="UTF-8" />

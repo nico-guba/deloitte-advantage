@@ -18,7 +18,7 @@
     <dependencies>
         <dependency>
             <groupId>uk.co.deloitte.advantage</groupId>
-            <artifactId>presentation-common</artifactId>
+            <artifactId>shared</artifactId>
         </dependency>
         <dependency>
             <groupId>com.amazonaws</groupId>
