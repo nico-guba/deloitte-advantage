@@ -4,12 +4,16 @@ import com.amazonaws.services.lambda.runtime.ClientContext;
 import com.amazonaws.services.lambda.runtime.CognitoIdentity;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.UUID;
 
 public class TestContext implements Context, LambdaLogger {
 
     private final String functionName = "test-function";
+
+    private static final Logger logger = LoggerFactory.getLogger(TestContext.class);
 
     public String getAwsRequestId() {
         return UUID.randomUUID().toString();
@@ -57,11 +61,11 @@ public class TestContext implements Context, LambdaLogger {
 
     @Override
     public void log(String message) {
-        System.out.println(message);
+        logger.info(message);
     }
 
     @Override
     public void log(byte[] message) {
-        System.out.println(new String(message));
+        logger.info(new String(message));
     }
 }
