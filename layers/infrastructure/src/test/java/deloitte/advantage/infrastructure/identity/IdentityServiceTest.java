@@ -1,6 +1,5 @@
 package deloitte.advantage.infrastructure.identity;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
@@ -12,8 +11,7 @@ import software.amazon.awssdk.services.cognitoidentityprovider.model.*;
 class IdentityServiceTest {
 
     @Test
-    @Disabled
-    void createUserPool() {
+    void addUserToGroup() {
         CognitoIdentityProviderClient cognitoClient = CognitoIdentityProviderClient.builder()
                 .region(Region.EU_WEST_2).credentialsProvider(getCredentialsProvider())
                 .build();
@@ -32,9 +30,12 @@ class IdentityServiceTest {
 
     private AwsCredentialsProvider getCredentialsProvider() {
         // we need to use a different credentials provider when we run in pipelines as opposed to ide
-        if (System.getProperty("AWS_ACCESS_KEY_ID") == null) {
+        if (System.getProperty("secret.AWS_ACCESS_KEY_ID") == null) {
             return ProfileCredentialsProvider.create("default");
         }
+        // configure AWS access via environment variables from GitHub actions.
+        System.setProperty("AWS_ACCESS_KEY_ID", System.getProperty("secret.AWS_ACCESS_KEY_ID"));
+        System.setProperty("AWS_SECRET_ACCESS_KEY", System.getProperty("secret.AWS_SECRET_ACCESS_KEY"));
         return EnvironmentVariableCredentialsProvider.create();
     }
 
