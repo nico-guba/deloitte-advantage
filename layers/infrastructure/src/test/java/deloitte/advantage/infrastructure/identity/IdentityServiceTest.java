@@ -29,14 +29,12 @@ class IdentityServiceTest {
     }
 
     private AwsCredentialsProvider getCredentialsProvider() {
-        System.out.println( System.getProperties());
-        // we need to use a different credentials provider when we run in pipelines as opposed to ide
-        if (System.getProperty("secret.AWS_ACCESS_KEY_ID") == null) {
+
+        System.out.println("AWS_REGION=" + System.getProperty("AWS_REGION"));
+        // we need to use a different credential provider when we run in pipelines as opposed to ide
+        if (System.getProperty("AWS_ACCESS_KEY_ID") == null) {
             return ProfileCredentialsProvider.create("default");
         }
-        // configure AWS access via environment variables from GitHub actions.
-        System.setProperty("AWS_ACCESS_KEY_ID", System.getProperty("secret.AWS_ACCESS_KEY_ID"));
-        System.setProperty("AWS_SECRET_ACCESS_KEY", System.getProperty("secret.AWS_SECRET_ACCESS_KEY"));
         return EnvironmentVariableCredentialsProvider.create();
     }
 
