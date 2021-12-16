@@ -30,7 +30,7 @@ class IdentityServiceTest {
 
     private AwsCredentialsProvider getCredentialsProvider() {
 
-        System.out.println("AWS_REGION=" + System.getProperty("AWS_REGION"));
+        System.out.println("AWS_KEY=" + System.getProperty("AWS_ACCESS_KEY_ID"));
         // we need to use a different credential provider when we run in pipelines as opposed to ide
         if (System.getProperty("AWS_ACCESS_KEY_ID") == null) {
             return ProfileCredentialsProvider.create("default");
