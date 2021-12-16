@@ -3,7 +3,6 @@ package deloitte.advantage.infrastructure.identity;
 import org.junit.jupiter.api.Test;
 import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
-import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.cognitoidentityprovider.CognitoIdentityProviderClient;
 import software.amazon.awssdk.services.cognitoidentityprovider.model.*;
@@ -29,14 +28,14 @@ class IdentityServiceTest {
     }
 
     private AwsCredentialsProvider getCredentialsProvider() {
-       System.getenv().forEach((k ,v) -> {
-            System.out.println(k + "=" + v);
-       });
-        System.out.println("AWS_KEY=" + System.getProperty("AWS_ACCESS_KEY_ID"));
-        // we need to use a different credential provider when we run in pipelines as opposed to ide
-        if (System.getProperty("AWS_ACCESS_KEY_ID") == null) {
-            return ProfileCredentialsProvider.create("default");
-        }
+//       System.getenv().forEach((k ,v) -> {
+//            System.out.println(k + "=" + v);
+//       });
+//        System.out.println("AWS_KEY=" + System.getProperty("AWS_ACCESS_KEY_ID"));
+//        // we need to use a different credential provider when we run in pipelines as opposed to ide
+//        if (System.getProperty("AWS_ACCESS_KEY_ID") == null) {
+//            return ProfileCredentialsProvider.create("default");
+//        }
         return EnvironmentVariableCredentialsProvider.create();
     }
 
