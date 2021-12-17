@@ -21,7 +21,7 @@ class CognitoConnectorTest {
 
     private static final String POOL_ID = "eu-west-2_wxRoGNwQ0";
 
-    private CognitoIdentityProviderClient cognitoClient = CognitoIdentityProviderClient.builder()
+    private final CognitoIdentityProviderClient cognitoClient = CognitoIdentityProviderClient.builder()
             .region(Region.EU_WEST_2).credentialsProvider(getCredentialsProvider())
             .build();
 

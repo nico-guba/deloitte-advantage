@@ -38,8 +38,16 @@ public class CognitoConnector {
 
         AdminCreateUserResponse response = client.adminCreateUser(userRequest);
 
+        AdminSetUserPasswordRequest passwordRequest = AdminSetUserPasswordRequest.builder()
+                .userPoolId(poolId)
+                .username(email)
+                .password("Advantage123!")
+                .permanent(true)
+                .build();
+
+        AdminSetUserPasswordResponse adminSetUserPasswordResponse = client.adminSetUserPassword(passwordRequest);
+
         LOGGER.info("Registered user={},  status={}", response.user().username(), response.user().userStatus());
-        //System.out.println("User " + response.user().username() + "is created. Status: " + response.user().userStatus());
 
 //        AdminAddUserToGroupRequest request = AdminAddUserToGroupRequest.builder()
 //                .groupName("member")
