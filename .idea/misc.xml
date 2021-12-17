@@ -10,7 +10,11 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/cognito-pre-signup-hook/pom.xml" />
+        <option value="$PROJECT_DIR$/cognito/pom.xml" />
         <option value="$PROJECT_DIR$/common/pom.xml" />
+        <option value="$PROJECT_DIR$/layers/infrastructure/lambda/cognito-pre-signup-hook/pom.xml" />
+        <option value="$PROJECT_DIR$/layers/infrastructure/lambda/pom.xml" />
         <option value="$PROJECT_DIR$/layers/presentation/arse/pom.xml" />
         <option value="$PROJECT_DIR$/layers/presentation/example/pom.xml" />
       </set>

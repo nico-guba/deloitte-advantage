@@ -1,5 +1,5 @@
-Note that in order to run these tests, you need to configure your IDE to have the following environment
-variables to grant access to the AWS instance.
+Note that in order to run these tests, you need to configure your AWS credentials for the default profile
+and ensure the following variables are set
 
 AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY
