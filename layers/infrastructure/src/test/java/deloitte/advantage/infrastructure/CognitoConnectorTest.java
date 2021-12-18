@@ -80,7 +80,7 @@ class CognitoConnectorTest {
     void findMember() {
         UUID id = cognito.createUser(email);
         try {
-            UserType member = cognito.findUser(email);
+            UserType member = cognito.findUserByEmail(email);
             assertThat(member.username()).isEqualTo(id.toString());
         } finally {
             cognito.removeUser(id);
