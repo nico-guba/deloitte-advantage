@@ -35,7 +35,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
                 <configuration>
                     <filters>
                         <filter>
@@ -64,7 +63,6 @@
             <plugin>
                 <groupId>com.github.davidmoten</groupId>
                 <artifactId>aws-maven-plugin</artifactId>
-                <version>0.2.29</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
