@@ -25,7 +25,7 @@ public class Join implements RequestHandler<APIGatewayProxyRequestEvent, APIGate
             if ("POST".equals(input.getHttpMethod())) {
                 return factory.makeSuccessResponse(message);
             }
-            return factory.makeErrorResponse("Unexpected method: " + input.getHttpMethod());
+            return factory.makeErrorResponse("Unexpected method: " + input.getHttpMethod(), 500);
         } catch (Exception e) {
             e.printStackTrace();
             return factory.makeErrorResponse(e);
