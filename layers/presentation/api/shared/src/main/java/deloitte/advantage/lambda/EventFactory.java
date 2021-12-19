@@ -37,27 +37,24 @@ public class EventFactory {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         APIGatewayProxyResponseEvent event = new APIGatewayProxyResponseEvent().withHeaders(headers).withStatusCode(200);
-        if(content != null) {
+        if (content != null) {
             return event.withBody(mapper.writeValueAsString(content));
         }
         return event;
     }
 
     public APIGatewayProxyResponseEvent makeErrorResponse(Exception e) {
-        return makeErrorResponse(e.getMessage());
+        return makeErrorResponse(e.getMessage(), 500);
     }
 
-    public APIGatewayProxyResponseEvent makeErrorResponse(final String message) {
+    public APIGatewayProxyResponseEvent makeErrorResponse(final String message, int httpStatus) {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         return new APIGatewayProxyResponseEvent().withHeaders(headers)
-                .withBody("{ \"message\":\"" + message + "\"}").withStatusCode(500);
+                .withBody("{ \"message\":\"" + message + "\"}").withStatusCode(httpStatus);
     }
 
     public APIGatewayProxyResponseEvent makeInvalidRequestResponse(final String message) {
-        Map<String, String> headers = new HashMap<>();
-        headers.put("Content-Type", "application/json");
-        return new APIGatewayProxyResponseEvent().withHeaders(headers)
-                .withBody("{ \"message\":\"" + message + "\"}").withStatusCode(400);
+        return makeErrorResponse(message, 400);
     }
 }
