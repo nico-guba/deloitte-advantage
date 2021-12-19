@@ -31,47 +31,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <configuration>
-                    <filters>
-                        <filter>
-                            <artifact>com.amazonaws:*</artifact>
-                            <excludes>
-                                <exclude>META-INF/*.MF</exclude>
-                            </excludes>
-                        </filter>
-                        <filter>
-                            <artifact>joda-time:*</artifact>
-                            <excludes>
-                                <exclude>META-INF/*.MF</exclude>
-                            </excludes>
-                        </filter>
-                    </filters>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>com.github.davidmoten</groupId>
                 <artifactId>aws-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>deployLambda</goal>
-                        </goals>
-                    </execution>
-                </executions>
                 <configuration>
-                    <serverId>aws</serverId>
-                    <!-- The default region provider chain is used if the region is omitted -->
-                    <region>eu-west-2</region>
-                    <artifact>${project.build.directory}/${project.artifactId}-${project.version}.jar</artifact>
                     <functionName>example-rest-gateway</functionName>
                     <!-- optional functionAlias, if included an alias for the new lambda version is created -->
                     <!-- functionAlias>${project.version}-${maven.build.timestamp}</functionAlias -->
