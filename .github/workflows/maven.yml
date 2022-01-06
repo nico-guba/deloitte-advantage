@@ -49,3 +49,29 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
         run: mvn -B package --file pom.xml
+
+  ui:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: layers/presentation/ui
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node 17
+        uses: actions/setup-node@v1
+        with:
+          node-version: '17.x'
+
+      - name: Install dependencies
+        run:
+          npm install
+
+      - name: Run tests with coverage
+        run:
+          npm run test
