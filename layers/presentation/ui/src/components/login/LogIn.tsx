@@ -6,8 +6,8 @@ import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import { IAuthClient } from "../services/AuthClientInterface";
-import AdvantageLogo from "../components/AdvantageLogo";
+import { IAuthClient } from "../../services/AuthClientInterface";
+import AdvantageLogo from "../AdvantageLogo";
 
 interface IProps {
     authClient: IAuthClient;

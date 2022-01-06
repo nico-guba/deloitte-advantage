@@ -1,7 +1,6 @@
 import { render, fireEvent, screen, Screen } from "@testing-library/react";
 import React from "react";
-import { act } from "react-dom/test-utils";
-import { IAuthClient } from "../services/AuthClientInterface";
+import { IAuthClient } from "../../services/AuthClientInterface";
 import LogIn from "./LogIn";
 
 const authClient: IAuthClient = { login: () => { } };

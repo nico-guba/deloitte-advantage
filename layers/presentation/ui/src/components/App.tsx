@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
-import Landing from '../landing/LandingPage';
-import SignUp from '../login/SignUp';
-import LogIn from '../login/LogIn';
+import Landing from './landing/LandingPage';
+import SignUp from './login/SignUp';
+import LogIn from './login/LogIn';
 
 const App = () => {
   return (
